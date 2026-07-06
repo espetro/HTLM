@@ -216,3 +216,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# HTLM large/regenerable artifacts (keep schema/, pipeline/, samples/)
+data/raw/
+data/processed/
+data/distilled/
+data/cache/
+training/runs/
+export/out/
+runtime-bench/out/
+*.gguf
+*.onnx
+*.bin
