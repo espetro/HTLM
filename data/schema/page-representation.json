@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "page-representation.json",
+  "title": "On-Device Browser Page Representation",
+  "description": "A pruned, indexed list of interactive elements for a browser-agent LLM.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["elements"],
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "Page URL. Optional to keep payload small when the agent only needs local context."
+    },
+    "title": {
+      "type": "string",
+      "description": "Page title / accessible document name."
+    },
+    "elements": {
+      "type": "array",
+      "description": "Interactive elements visible and actionable on the page, ordered top-to-bottom, left-to-right.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["index", "role", "label"],
+        "properties": {
+          "index": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "0-based identifier unique within the page. Used by the action schema to refer to the element."
+          },
+          "role": {
+            "type": "string",
+            "enum": [
+              "button",
+              "link",
+              "input",
+              "textarea",
+              "select",
+              "checkbox",
+              "radio",
+              "combobox",
+              "searchbox",
+              "menu",
+              "menuitem",
+              "tab",
+              "switch"
+            ],
+            "description": "Semantic interactive role. A small closed set keeps the output distribution tight."
+          },
+          "label": {
+            "type": "string",
+            "description": "Accessible name, aria-label, or visible text content. Empty string allowed."
+          },
+          "placeholder": {
+            "type": "string",
+            "description": "Placeholder hint for text-like controls."
+          },
+          "value": {
+            "type": "string",
+            "description": "Current value or checked state description."
+          },
+          "tag": {
+            "type": "string",
+            "description": "Original HTML tag, e.g. 'button', 'a', 'input'. Useful for mapping back to DOM."
+          },
+          "bounds": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "x": { "type": "number" },
+              "y": { "type": "number" },
+              "width": { "type": "number" },
+              "height": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Source pipeline or extension that produced this representation."
+        },
+        "timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of extraction."
+        }
+      }
+    }
+  }
+}

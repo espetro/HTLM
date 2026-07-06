@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "action.json",
+  "title": "Browser Agent Action",
+  "description": "A grounded, deterministic action produced by the on-device browser-agent LLM.",
+  "type": "object",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "index"],
+      "properties": {
+        "type": { "const": "click" },
+        "index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Index of the element to click, matching the page representation."
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "index", "text"],
+      "properties": {
+        "type": { "const": "type" },
+        "index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Index of the text input element."
+        },
+        "text": {
+          "type": "string",
+          "description": "Text to type into the element."
+        },
+        "submit": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether to press Enter after typing."
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "index", "value"],
+      "properties": {
+        "type": { "const": "select" },
+        "index": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Index of the select/combobox element."
+        },
+        "value": {
+          "type": "string",
+          "description": "Option value to select."
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "direction"],
+      "properties": {
+        "type": { "const": "scroll" },
+        "direction": {
+          "type": "string",
+          "enum": ["up", "down", "left", "right"],
+          "description": "Scroll direction."
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": { "const": "wait" }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type"],
+      "properties": {
+        "type": { "const": "done" },
+        "answer": {
+          "type": "string",
+          "description": "Optional final answer or summary when the task is complete."
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "instruction": "Search for a cheap flight from Madrid to Tokyo",
+  "page": {
+    "url": "https://example-travel.example/",
+    "title": "Example Travel - Find cheap flights",
+    "elements": [
+      {
+        "index": 0,
+        "role": "combobox",
+        "label": "From",
+        "placeholder": "Origin city or airport",
+        "value": "",
+        "tag": "input"
+      },
+      {
+        "index": 1,
+        "role": "combobox",
+        "label": "To",
+        "placeholder": "Destination city or airport",
+        "value": "",
+        "tag": "input"
+      },
+      {
+        "index": 2,
+        "role": "input",
+        "label": "Departure",
+        "placeholder": "dd/mm/yyyy",
+        "value": "",
+        "tag": "input"
+      },
+      {
+        "index": 3,
+        "role": "button",
+        "label": "Search flights",
+        "tag": "button"
+      },
+      {
+        "index": 4,
+        "role": "link",
+        "label": "My trips",
+        "tag": "a"
+      }
+    ],
+    "metadata": {
+      "source": "htlm-content-script-v0.1",
+      "timestamp": "2026-07-06T09:30:00Z"
+    }
+  },
+  "action": {
+    "type": "type",
+    "index": 0,
+    "text": "Madrid",
+    "submit": false
+  }
+}
