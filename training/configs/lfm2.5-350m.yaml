@@ -1,0 +1,24 @@
+# LiquidAI LFM2.5-350M — 354M params, Llama-family, 32K context
+# Candidate #1 for the bake-off.
+
+model_id: LiquidAI/LFM2.5-350M
+formatter: llama
+quant: null          # full precision (8 x A100 80GB or 2 x A100 for LoRA)
+# For 1x A100 80GB: use quant: "4bit" for QLoRA (reduces to ~700MB)
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.05
+lora_target_modules: [q_proj, k_proj, v_proj, o_proj]
+learning_rate: 2.0e-4
+num_epochs: 3
+per_device_batch_size: 2
+gradient_accumulation_steps: 8    # effective batch = 16
+warmup_ratio: 0.1
+weight_decay: 0.01
+lr_scheduler: cosine
+max_seq_length: 2048
+train_data: data/processed/train.jsonl
+eval_data: data/processed/eval.jsonl
+output_dir: training/runs/lfm2.5-350m
+fp16: true
+gradient_checkpointing: true

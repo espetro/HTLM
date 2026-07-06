@@ -16,8 +16,21 @@ data = [
     "openai>=1.40",
     "tqdm>=4.66",
 ]
-train = []
-export = []
+train = [
+    "transformers>=4.40",
+    "peft>=0.10",
+    "trl>=0.8",
+    "bitsandbytes>=0.41",
+    "accelerate>=0.30",
+    "tensorboard>=2.16",
+    "pyyaml>=6.0",
+    "scipy>=1.12",
+]
+export = [
+    "llama-cpp-python>=0.2",
+    "onnxruntime>=1.18",
+    "optimum>=1.17",
+]
 
 [build-system]
 requires = ["hatchling"]
