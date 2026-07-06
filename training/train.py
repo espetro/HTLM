@@ -22,8 +22,15 @@ Config format (YAML):
     train_data: data/processed/train.jsonl
     eval_data: data/processed/eval.jsonl
     output_dir: training/runs/lfm2.5-350m
-    fp16: true
+    # Precision: leave both unset for auto (bf16 on cuda/mps, nothing on cpu).
+    # Set explicitly only when you need to override:
+    #   fp16: true     # CUDA-only legacy
+    #   bf16: true     # CUDA (Ampere+) and Apple Silicon (M-series)
     gradient_checkpointing: true
+
+Device selection is automatic: cuda → mps → cpu. Quantized paths (4bit/8bit)
+require CUDA via bitsandbytes; on Apple Silicon, leave quant: null — the
+candidate models (≤500M) fit in BF16 on any M-series Mac with ≥16GB unified.
 """
 
 from __future__ import annotations
@@ -35,11 +42,21 @@ import sys
 from pathlib import Path
 from typing import Any
 
+import torch
 import yaml
 
 # Ensure `training` is on the path for the formatters import
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from training.formatters import get_formatter  # noqa: E402
+
+
+def _detect_device() -> str:
+    """Pick the best available torch device: cuda → mps → cpu."""
+    if torch.cuda.is_available():
+        return "cuda"
+    if torch.backends.mps.is_available():
+        return "mps"
+    return "cpu"
 
 
 def _resolve_model_id(model_id: str) -> str:
@@ -112,9 +129,11 @@ def train(config_path: str | Path) -> None:
     formatter_key: str = config.get("formatter", "llama")
     quant: str | None = config.get("quant", None)  # null | "4bit" | "8bit"
     output_dir: str = config["output_dir"]
+    device = _detect_device()
 
     print(f"[train] model={model_id} formatter={formatter_key} quant={quant}")
     print(f"[train] config={config_path}")
+    print(f"[train] device={device}")
 
     # ── tokenizer ─────────────────────────────────────────────────────────────
     from transformers import AutoTokenizer
@@ -146,6 +165,11 @@ def train(config_path: str | Path) -> None:
         _resolve_model_id(model_id),
         **load_kwargs,
     )
+
+    # When not quantized, place on the detected device explicitly (CUDA/MPS/CPU).
+    # QLoRA paths use device_map="auto" above and manage placement themselves.
+    if not quant and device != "cpu":
+        model = model.to(device)
 
     # ── LoRA config ───────────────────────────────────────────────────────────
     from peft import LoraConfig, get_peft_model, TaskType
@@ -179,6 +203,19 @@ def train(config_path: str | Path) -> None:
     from transformers import TrainingArguments
     from trl import SFTTrainer
 
+    # Precision: explicit config wins; otherwise auto-pick bf16 on cuda/mps,
+    # nothing on cpu. fp16 is a CUDA-only legacy option.
+    explicit_fp16 = config.get("fp16", None)
+    explicit_bf16 = config.get("bf16", None)
+    if explicit_fp16 is not None and explicit_bf16 is not None:
+        raise SystemExit("config: set either fp16 or bf16, not both")
+    if explicit_fp16 is None and explicit_bf16 is None:
+        use_bf16 = device in ("cuda", "mps")
+        use_fp16 = False
+    else:
+        use_fp16 = bool(explicit_fp16)
+        use_bf16 = bool(explicit_bf16)
+
     training_args = TrainingArguments(
         output_dir=output_dir,
         num_train_epochs=config.get("num_epochs", 3),
@@ -189,7 +226,8 @@ def train(config_path: str | Path) -> None:
         weight_decay=config.get("weight_decay", 0.01),
         warmup_ratio=config.get("warmup_ratio", 0.1),
         lr_scheduler_type=config.get("lr_scheduler", "cosine"),
-        fp16=config.get("fp16", True),
+        fp16=use_fp16,
+        bf16=use_bf16,
         logging_steps=10,
         save_strategy="epoch",
         report_to=["tensorboard"],
