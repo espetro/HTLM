@@ -225,6 +225,8 @@ data/cache/
 training/runs/
 export/out/
 runtime-bench/out/
+runtime-bench/node_modules/
+runtime-bench/vendor/
 *.gguf
 *.onnx
 *.bin

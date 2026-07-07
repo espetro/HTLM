@@ -1,0 +1,14 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "dependencies": {
+        "@wllama/wllama": "^3.5.1",
+      },
+    },
+  },
+  "packages": {
+    "@wllama/wllama": ["@wllama/wllama@3.5.1", "", {}, "sha512-m5L0KKtmUTKz5lGvVVa/Y3qRtoobu80Jne51U0CSR6O930aOUURzhMEAolNsN4v0kfQ9u58wi2IdpUicLfaXUw=="],
+  }
+}

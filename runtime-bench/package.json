@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@wllama/wllama": "^3.5.1"
+  }
+}

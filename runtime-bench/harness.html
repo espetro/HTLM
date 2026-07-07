@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTLM wllama runtime benchmark</title>
+  <style>
+    body { font-family: monospace; margin: 1.5rem; background: #111; color: #0f0; }
+    pre { white-space: pre-wrap; word-break: break-word; background: #222; padding: 1rem; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>HTLM browser latency benchmark</h1>
+  <pre id="log">Initializing...</pre>
+  <script type="module">
+    import { Wllama } from '/wllama/index.js';
+
+    const logEl = document.getElementById('log');
+    const log = (msg) => {
+      console.log('[bench]', msg);
+      logEl.textContent += '\n' + String(msg);
+    };
+
+    try {
+      log('Isolation: crossOriginIsolated=' + self.crossOriginIsolated +
+          ' SharedArrayBuffer=' + (typeof SharedArrayBuffer !== 'undefined'));
+      if (!self.crossOriginIsolated || typeof SharedArrayBuffer === 'undefined') {
+        throw new Error('Page is not cross-origin isolated; multi-thread WASM will be disabled.');
+      }
+
+      const wllama = new Wllama({ 'default': '/wllama/wasm/wllama.wasm' });
+
+      log('Loading model...');
+      await wllama.loadModelFromUrl('/models/lfm2.5-350m-q4_k_m.gguf', {
+        n_ctx: 2048,
+        progressCallback: ({ loaded, total }) => {
+          const pct = total ? Math.round((loaded / total) * 100) : 0;
+          log(`Model load: ${pct}%`);
+        },
+      });
+      log('Model loaded.');
+
+      const promptsRes = await fetch('/prompts.json');
+      if (!promptsRes.ok) throw new Error('Failed to fetch prompts.json: ' + promptsRes.status);
+      const prompts = await promptsRes.json();
+      log(`Loaded ${prompts.length} prompts.`);
+
+      // Warm-up: discard the first inference call.
+      log('Warm-up inference...');
+      await wllama.createCompletion({
+        prompt: prompts[0].prompt,
+        max_tokens: 128,
+        temperature: 0,
+        stop: [],
+        timings_per_token: true,
+      });
+      log('Warm-up done.');
+
+      const results = [];
+      for (let i = 0; i < prompts.length; i++) {
+        const item = prompts[i];
+        const t0 = performance.now();
+        const out = await wllama.createCompletion({
+          prompt: item.prompt,
+          max_tokens: 128,
+          temperature: 0,
+          stop: [],
+          timings_per_token: true,
+        });
+        const totalMs = performance.now() - t0;
+        const text = out.choices?.[0]?.text ?? '';
+        const usage = out.usage ?? {};
+        results.push({
+          prediction_text: text,
+          total_ms: totalMs,
+          prompt_tokens: usage.prompt_tokens ?? 0,
+          predicted_tokens: usage.completion_tokens ?? 0,
+        });
+        log(`Step ${i + 1}/${prompts.length}: ${Math.round(totalMs)}ms (${text.slice(0, 60).replace(/\n/g, '\\n')})`);
+      }
+
+      log(`POSTing ${results.length} results...`);
+      const post = await fetch('/results', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(results),
+      });
+      if (!post.ok) throw new Error('POST /results failed: ' + post.status);
+
+      window._benchResults = results;
+      window._ready = true;
+      log('Benchmark complete. window._ready = true');
+    } catch (err) {
+      const msg = err?.message ?? String(err);
+      log('ERROR: ' + msg);
+      window._error = msg;
+    }
+  </script>
+</body>
+</html>
