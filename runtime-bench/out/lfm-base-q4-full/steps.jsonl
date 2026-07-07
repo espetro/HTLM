@@ -1,0 +1,408 @@
+{"step_index": 0, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1595.5999999046326, "correct": false, "error": "parse"}
+{"step_index": 1, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2046.8000000715256, "correct": false, "error": "parse"}
+{"step_index": 2, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1251.7050000429153, "correct": false, "error": "parse"}
+{"step_index": 3, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1169.9900000095367, "correct": false, "error": "parse"}
+{"step_index": 4, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1278.4099999666214, "correct": false, "error": null}
+{"step_index": 5, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1171.1600000858307, "correct": false, "error": null}
+{"step_index": 6, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1077.9499999284744, "correct": false, "error": null}
+{"step_index": 7, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2483.9500000476837, "correct": false, "error": "parse"}
+{"step_index": 8, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1198.539999961853, "correct": false, "error": "parse"}
+{"step_index": 9, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1590.0800000429153, "correct": false, "error": "parse"}
+{"step_index": 10, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1174.9700000286102, "correct": false, "error": "parse"}
+{"step_index": 11, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1266.2700001001358, "correct": false, "error": "parse"}
+{"step_index": 12, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1213.7650001049042, "correct": false, "error": null}
+{"step_index": 13, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1213.9649999141693, "correct": false, "error": "parse"}
+{"step_index": 14, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1379.9950000047684, "correct": false, "error": "parse"}
+{"step_index": 15, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1247.6150000095367, "correct": false, "error": "parse"}
+{"step_index": 16, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1436.7400000095367, "correct": false, "error": "parse"}
+{"step_index": 17, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1430.929999947548, "correct": false, "error": "parse"}
+{"step_index": 18, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1299.7300000190735, "correct": false, "error": "parse"}
+{"step_index": 19, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1217.1000000238419, "correct": false, "error": "parse"}
+{"step_index": 20, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1305.3949999809265, "correct": false, "error": "parse"}
+{"step_index": 21, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1207.1349999904633, "correct": false, "error": "parse"}
+{"step_index": 22, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 104.17999994754791, "correct": false, "error": "parse"}
+{"step_index": 23, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 87.15499997138977, "correct": false, "error": "parse"}
+{"step_index": 24, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 79.19000005722046, "correct": false, "error": "parse"}
+{"step_index": 25, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1247.5200001001358, "correct": false, "error": "parse"}
+{"step_index": 26, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1213.4000000953674, "correct": false, "error": "parse"}
+{"step_index": 27, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1088.2249999046326, "correct": false, "error": "parse"}
+{"step_index": 28, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 2117.560000061989, "correct": false, "error": "parse"}
+{"step_index": 29, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2245.6200000047684, "correct": false, "error": "parse"}
+{"step_index": 30, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2202.975000023842, "correct": false, "error": "parse"}
+{"step_index": 31, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1444.3500000238419, "correct": false, "error": "parse"}
+{"step_index": 32, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2044.9950000047684, "correct": false, "error": "parse"}
+{"step_index": 33, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2272.475000023842, "correct": false, "error": "parse"}
+{"step_index": 34, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2185.225000023842, "correct": false, "error": "parse"}
+{"step_index": 35, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2209.2599999904633, "correct": false, "error": "parse"}
+{"step_index": 36, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 769.8500000238419, "correct": false, "error": "parse"}
+{"step_index": 37, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1575.1050000190735, "correct": false, "error": "parse"}
+{"step_index": 38, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2326.7200000286102, "correct": false, "error": "parse"}
+{"step_index": 39, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2539.125, "correct": false, "error": "parse"}
+{"step_index": 40, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2443.899999976158, "correct": false, "error": "parse"}
+{"step_index": 41, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 2334.2549999952316, "correct": false, "error": "parse"}
+{"step_index": 42, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1415.8050000667572, "correct": false, "error": "parse"}
+{"step_index": 43, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1263.4850000143051, "correct": false, "error": "parse"}
+{"step_index": 44, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1298.5199999809265, "correct": false, "error": "parse"}
+{"step_index": 45, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1292.875, "correct": false, "error": "parse"}
+{"step_index": 46, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1522.7300000190735, "correct": false, "error": "parse"}
+{"step_index": 47, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1385.829999923706, "correct": false, "error": "parse"}
+{"step_index": 48, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1318.0250000953674, "correct": false, "error": "parse"}
+{"step_index": 49, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1376.6800000667572, "correct": false, "error": "parse"}
+{"step_index": 50, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1233.9499999284744, "correct": false, "error": "parse"}
+{"step_index": 51, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1255.2699999809265, "correct": false, "error": "parse"}
+{"step_index": 52, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1231.4700000286102, "correct": false, "error": "parse"}
+{"step_index": 53, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2131.185000061989, "correct": false, "error": "parse"}
+{"step_index": 54, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2028.8250000476837, "correct": false, "error": "parse"}
+{"step_index": 55, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2017.4199999570847, "correct": false, "error": "parse"}
+{"step_index": 56, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1083.1349999904633, "correct": false, "error": "parse"}
+{"step_index": 57, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1988.0049999952316, "correct": false, "error": "parse"}
+{"step_index": 58, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1009.1549999713898, "correct": false, "error": "parse"}
+{"step_index": 59, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 793.4399999380112, "correct": false, "error": "parse"}
+{"step_index": 60, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1027.4249999523163, "correct": false, "error": "parse"}
+{"step_index": 61, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 938.6850000619888, "correct": false, "error": "parse"}
+{"step_index": 62, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1807.0449999570847, "correct": false, "error": "parse"}
+{"step_index": 63, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1979.4099999666214, "correct": false, "error": "parse"}
+{"step_index": 64, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 996.8249999284744, "correct": false, "error": "parse"}
+{"step_index": 65, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 903.0800000429153, "correct": false, "error": null}
+{"step_index": 66, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 667.3249999284744, "correct": false, "error": null}
+{"step_index": 67, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1112.679999947548, "correct": false, "error": null}
+{"step_index": 68, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1280.630000114441, "correct": false, "error": null}
+{"step_index": 69, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 912.8250000476837, "correct": false, "error": null}
+{"step_index": 70, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 934.0449999570847, "correct": false, "error": null}
+{"step_index": 71, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 966.8799999952316, "correct": false, "error": null}
+{"step_index": 72, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 913.9049999713898, "correct": false, "error": null}
+{"step_index": 73, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1126.7699999809265, "correct": false, "error": null}
+{"step_index": 74, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 944.5650000572205, "correct": false, "error": null}
+{"step_index": 75, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 684.2200000286102, "correct": false, "error": null}
+{"step_index": 76, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 914.1800000667572, "correct": false, "error": "parse"}
+{"step_index": 77, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 82.4300000667572, "correct": false, "error": "parse"}
+{"step_index": 78, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1103.0749999284744, "correct": false, "error": "parse"}
+{"step_index": 79, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 85.33500003814697, "correct": false, "error": "parse"}
+{"step_index": 80, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 1172.804999947548, "correct": false, "error": "parse"}
+{"step_index": 81, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 980.6850000619888, "correct": false, "error": "parse"}
+{"step_index": 82, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 991.1599999666214, "correct": false, "error": "parse"}
+{"step_index": 83, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 90.11000001430511, "correct": false, "error": "parse"}
+{"step_index": 84, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 950.0650000572205, "correct": false, "error": "parse"}
+{"step_index": 85, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 965.8899999856949, "correct": false, "error": null}
+{"step_index": 86, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1179.5800000429153, "correct": false, "error": "parse"}
+{"step_index": 87, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 980.3050000667572, "correct": false, "error": "parse"}
+{"step_index": 88, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 82.1599999666214, "correct": false, "error": "parse"}
+{"step_index": 89, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 998.3500000238419, "correct": false, "error": "parse"}
+{"step_index": 90, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1049.2849999666214, "correct": false, "error": "parse"}
+{"step_index": 91, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 475.85000002384186, "correct": false, "error": "parse"}
+{"step_index": 92, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1216.9900000095367, "correct": false, "error": "parse"}
+{"step_index": 93, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 1083.9550000429153, "correct": false, "error": "parse"}
+{"step_index": 94, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 110.30999994277954, "correct": false, "error": "parse"}
+{"step_index": 95, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 575.1899999380112, "correct": false, "error": null}
+{"step_index": 96, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1021.7199999094009, "correct": false, "error": "parse"}
+{"step_index": 97, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 995.8799999952316, "correct": false, "error": "parse"}
+{"step_index": 98, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 946.2749999761581, "correct": false, "error": "parse"}
+{"step_index": 99, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 880.8500000238419, "correct": false, "error": "parse"}
+{"step_index": 100, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1014.6299999952316, "correct": false, "error": "parse"}
+{"step_index": 101, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 455.14999997615814, "correct": false, "error": "parse"}
+{"step_index": 102, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 940.2450000047684, "correct": false, "error": "parse"}
+{"step_index": 103, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 900.2450000047684, "correct": false, "error": "parse"}
+{"step_index": 104, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 967.3950001001358, "correct": false, "error": null}
+{"step_index": 105, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 501.09500002861023, "correct": false, "error": null}
+{"step_index": 106, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 107.60000002384186, "correct": false, "error": null}
+{"step_index": 107, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 988.1399999856949, "correct": false, "error": "parse"}
+{"step_index": 108, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 102.67999994754791, "correct": false, "error": "parse"}
+{"step_index": 109, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2219.5599999427795, "correct": false, "error": "parse"}
+{"step_index": 110, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 168.73499989509583, "correct": false, "error": "parse"}
+{"step_index": 111, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 881.2800000905991, "correct": false, "error": "parse"}
+{"step_index": 112, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 904.4300000667572, "correct": false, "error": "parse"}
+{"step_index": 113, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 975.3650000095367, "correct": false, "error": "parse"}
+{"step_index": 114, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 946.7650001049042, "correct": false, "error": "parse"}
+{"step_index": 115, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 462.210000038147, "correct": false, "error": "parse"}
+{"step_index": 116, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 454.3249999284744, "correct": false, "error": "parse"}
+{"step_index": 117, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2044.4150000810623, "correct": false, "error": "parse"}
+{"step_index": 118, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1462.5599999427795, "correct": false, "error": "parse"}
+{"step_index": 119, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 775.8400000333786, "correct": false, "error": "parse"}
+{"step_index": 120, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 110.03999996185303, "correct": false, "error": "parse"}
+{"step_index": 121, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 517.0950000286102, "correct": false, "error": "parse"}
+{"step_index": 122, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1953.380000114441, "correct": false, "error": "parse"}
+{"step_index": 123, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1392.0649999380112, "correct": false, "error": "parse"}
+{"step_index": 124, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1897.7250000238419, "correct": false, "error": "parse"}
+{"step_index": 125, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1983.3150000572205, "correct": false, "error": "parse"}
+{"step_index": 126, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1009.6349999904633, "correct": false, "error": "parse"}
+{"step_index": 127, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1016.204999923706, "correct": false, "error": "parse"}
+{"step_index": 128, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1014.5500000715256, "correct": false, "error": "parse"}
+{"step_index": 129, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 971.9649999141693, "correct": false, "error": "parse"}
+{"step_index": 130, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 970.4050000905991, "correct": false, "error": "parse"}
+{"step_index": 131, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1119.1849999427795, "correct": false, "error": "parse"}
+{"step_index": 132, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1075.9900000095367, "correct": false, "error": "parse"}
+{"step_index": 133, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 121.53999996185303, "correct": false, "error": "parse"}
+{"step_index": 134, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 968.4750000238419, "correct": false, "error": "parse"}
+{"step_index": 135, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 2072.789999961853, "correct": false, "error": "parse"}
+{"step_index": 136, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1960.9700000286102, "correct": false, "error": "parse"}
+{"step_index": 137, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 2224.9349999427795, "correct": false, "error": "parse"}
+{"step_index": 138, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 506.9850000143051, "correct": false, "error": null}
+{"step_index": 139, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 632.4500000476837, "correct": false, "error": null}
+{"step_index": 140, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 521.0999999046326, "correct": false, "error": null}
+{"step_index": 141, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 614.7900000810623, "correct": false, "error": null}
+{"step_index": 142, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1138.8199999332428, "correct": false, "error": "parse"}
+{"step_index": 143, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 946.5650000572205, "correct": false, "error": "parse"}
+{"step_index": 144, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 959.2400000095367, "correct": false, "error": "parse"}
+{"step_index": 145, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1073.8450000286102, "correct": false, "error": "parse"}
+{"step_index": 146, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1105.5199999809265, "correct": false, "error": "parse"}
+{"step_index": 147, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 1010.9700000286102, "correct": false, "error": "parse"}
+{"step_index": 148, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1021.4900000095367, "correct": false, "error": "parse"}
+{"step_index": 149, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 2223.3249999284744, "correct": false, "error": "parse"}
+{"step_index": 150, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2044.4150000810623, "correct": false, "error": "parse"}
+{"step_index": 151, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2026.7599999904633, "correct": false, "error": "parse"}
+{"step_index": 152, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 2115.804999947548, "correct": false, "error": "parse"}
+{"step_index": 153, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1056.1800000667572, "correct": false, "error": "parse"}
+{"step_index": 154, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1997.5649999380112, "correct": false, "error": "parse"}
+{"step_index": 155, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1035.4500000476837, "correct": false, "error": "parse"}
+{"step_index": 156, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1106.6599999666214, "correct": false, "error": "parse"}
+{"step_index": 157, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 928.664999961853, "correct": false, "error": "parse"}
+{"step_index": 158, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1109.6750000715256, "correct": false, "error": "parse"}
+{"step_index": 159, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 996.7649999856949, "correct": false, "error": "parse"}
+{"step_index": 160, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1019.1499999761581, "correct": false, "error": "parse"}
+{"step_index": 161, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 205.72000002861023, "correct": false, "error": "parse"}
+{"step_index": 162, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 226.67000007629395, "correct": false, "error": "parse"}
+{"step_index": 163, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1645.3799999952316, "correct": false, "error": "parse"}
+{"step_index": 164, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 857.0700000524521, "correct": false, "error": null}
+{"step_index": 165, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 803.3250000476837, "correct": false, "error": null}
+{"step_index": 166, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1991.929999947548, "correct": false, "error": "parse"}
+{"step_index": 167, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2193.469999909401, "correct": false, "error": "parse"}
+{"step_index": 168, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 956.8300000429153, "correct": false, "error": "parse"}
+{"step_index": 169, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1952.4349999427795, "correct": false, "error": "parse"}
+{"step_index": 170, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1397.1599999666214, "correct": false, "error": "parse"}
+{"step_index": 171, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 866.1399999856949, "correct": false, "error": "parse"}
+{"step_index": 172, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 152.2849999666214, "correct": false, "error": "parse"}
+{"step_index": 173, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 904.1000000238419, "correct": false, "error": "parse"}
+{"step_index": 174, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 76.76499998569489, "correct": false, "error": "parse"}
+{"step_index": 175, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 935.3949999809265, "correct": false, "error": "parse"}
+{"step_index": 176, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 921.8500000238419, "correct": false, "error": "parse"}
+{"step_index": 177, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 760.914999961853, "correct": false, "error": "parse"}
+{"step_index": 178, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 2093.514999985695, "correct": false, "error": "parse"}
+{"step_index": 179, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 1641.3400000333786, "correct": false, "error": "parse"}
+{"step_index": 180, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1824.6549999713898, "correct": false, "error": "parse"}
+{"step_index": 181, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 916.7800000905991, "correct": false, "error": "parse"}
+{"step_index": 182, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1938.3599998950958, "correct": false, "error": "parse"}
+{"step_index": 183, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 950.039999961853, "correct": false, "error": "parse"}
+{"step_index": 184, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1962.9850000143051, "correct": false, "error": "parse"}
+{"step_index": 185, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2005.1800000667572, "correct": false, "error": "parse"}
+{"step_index": 186, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1425.1200000047684, "correct": false, "error": "parse"}
+{"step_index": 187, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1833.2749999761581, "correct": false, "error": "parse"}
+{"step_index": 188, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1310.0349999666214, "correct": false, "error": "parse"}
+{"step_index": 189, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 924.125, "correct": false, "error": "parse"}
+{"step_index": 190, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 147.89999997615814, "correct": false, "error": "parse"}
+{"step_index": 191, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 127.40499997138977, "correct": false, "error": "parse"}
+{"step_index": 192, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 119.44500005245209, "correct": false, "error": "parse"}
+{"step_index": 193, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 117.20999991893768, "correct": false, "error": "parse"}
+{"step_index": 194, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 116.64999997615814, "correct": false, "error": "parse"}
+{"step_index": 195, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 116.21000003814697, "correct": false, "error": "parse"}
+{"step_index": 196, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 118.95499992370605, "correct": false, "error": "parse"}
+{"step_index": 197, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1968.5500000715256, "correct": false, "error": "parse"}
+{"step_index": 198, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1334.4249999523163, "correct": false, "error": "parse"}
+{"step_index": 199, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1925.5, "correct": false, "error": "parse"}
+{"step_index": 200, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2221.439999938011, "correct": false, "error": "parse"}
+{"step_index": 201, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1976.405000090599, "correct": false, "error": "parse"}
+{"step_index": 202, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1946.9199999570847, "correct": false, "error": "parse"}
+{"step_index": 203, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1947.9099999666214, "correct": false, "error": "parse"}
+{"step_index": 204, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1579.0249999761581, "correct": false, "error": "parse"}
+{"step_index": 205, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 767.3600000143051, "correct": false, "error": "parse"}
+{"step_index": 206, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 993.3049999475479, "correct": false, "error": "parse"}
+{"step_index": 207, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 875.9350000619888, "correct": false, "error": "parse"}
+{"step_index": 208, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 952.7250000238419, "correct": false, "error": "parse"}
+{"step_index": 209, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 83.34500002861023, "correct": false, "error": "parse"}
+{"step_index": 210, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 951.1100000143051, "correct": false, "error": "parse"}
+{"step_index": 211, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 874.5849999189377, "correct": false, "error": "parse"}
+{"step_index": 212, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 55.06000006198883, "correct": false, "error": "parse"}
+{"step_index": 213, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 940.7150000333786, "correct": false, "error": "parse"}
+{"step_index": 214, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2195.7699999809265, "correct": false, "error": "parse"}
+{"step_index": 215, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 963.4250000715256, "correct": false, "error": "parse"}
+{"step_index": 216, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1011.6499999761581, "correct": false, "error": "parse"}
+{"step_index": 217, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 924.1799999475479, "correct": false, "error": "parse"}
+{"step_index": 218, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 58.894999980926514, "correct": false, "error": "parse"}
+{"step_index": 219, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 937.2200000286102, "correct": false, "error": "parse"}
+{"step_index": 220, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1086.2799999713898, "correct": false, "error": "parse"}
+{"step_index": 221, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1987.704999923706, "correct": false, "error": "parse"}
+{"step_index": 222, "predicted_action": {"type": "click", "index": 0, "text": "Enter rental"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 526.2799999713898, "correct": false, "error": null}
+{"step_index": 223, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 565.6200000047684, "correct": false, "error": null}
+{"step_index": 224, "predicted_action": {"type": "click", "index": 0, "text": "search"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 499.0749999284744, "correct": true, "error": null}
+{"step_index": 225, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1210.1850000619888, "correct": false, "error": "parse"}
+{"step_index": 226, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 926.5049999952316, "correct": false, "error": "parse"}
+{"step_index": 227, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1061.6749999523163, "correct": false, "error": "parse"}
+{"step_index": 228, "predicted_action": {"type": "done", "answer": "true"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 280.81000006198883, "correct": false, "error": null}
+{"step_index": 229, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1034.125, "correct": false, "error": "parse"}
+{"step_index": 230, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2220.795000076294, "correct": false, "error": "parse"}
+{"step_index": 231, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1042.8600000143051, "correct": false, "error": "parse"}
+{"step_index": 232, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 945.8050000667572, "correct": false, "error": "parse"}
+{"step_index": 233, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 105.46499991416931, "correct": false, "error": "parse"}
+{"step_index": 234, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 990.2450000047684, "correct": false, "error": "parse"}
+{"step_index": 235, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1125.4350000619888, "correct": false, "error": "parse"}
+{"step_index": 236, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2069.5199999809265, "correct": false, "error": "parse"}
+{"step_index": 237, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 501.45500004291534, "correct": false, "error": null}
+{"step_index": 238, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 602.3200000524521, "correct": false, "error": null}
+{"step_index": 239, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 524.875, "correct": false, "error": null}
+{"step_index": 240, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1087.9199999570847, "correct": false, "error": "parse"}
+{"step_index": 241, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 966.3999999761581, "correct": false, "error": "parse"}
+{"step_index": 242, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 943.1750000715256, "correct": false, "error": "parse"}
+{"step_index": 243, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 938.6699999570847, "correct": false, "error": "parse"}
+{"step_index": 244, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 971.9450000524521, "correct": false, "error": "parse"}
+{"step_index": 245, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 78.68499994277954, "correct": false, "error": "parse"}
+{"step_index": 246, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1080.5900000333786, "correct": false, "error": "parse"}
+{"step_index": 247, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1033.2099999189377, "correct": false, "error": "parse"}
+{"step_index": 248, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 1}, "latency_ms": 1023.1750000715256, "correct": false, "error": "parse"}
+{"step_index": 249, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 915.5249999761581, "correct": false, "error": "parse"}
+{"step_index": 250, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 544.7849999666214, "correct": false, "error": "parse"}
+{"step_index": 251, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 994.3300000429153, "correct": false, "error": "parse"}
+{"step_index": 252, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 89.38499999046326, "correct": false, "error": "parse"}
+{"step_index": 253, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 988.1999999284744, "correct": false, "error": null}
+{"step_index": 254, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1012.7599999904633, "correct": false, "error": "parse"}
+{"step_index": 255, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 594.6549999713898, "correct": false, "error": "parse"}
+{"step_index": 256, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 62.84500002861023, "correct": false, "error": "parse"}
+{"step_index": 257, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 65.27999997138977, "correct": false, "error": "parse"}
+{"step_index": 258, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 751.3049999475479, "correct": false, "error": null}
+{"step_index": 259, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 941.3999999761581, "correct": false, "error": "parse"}
+{"step_index": 260, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1163.1299999952316, "correct": false, "error": "parse"}
+{"step_index": 261, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 957.8949999809265, "correct": false, "error": "parse"}
+{"step_index": 262, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 981.2999999523163, "correct": false, "error": "parse"}
+{"step_index": 263, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 955.0650000572205, "correct": false, "error": "parse"}
+{"step_index": 264, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 988.75, "correct": false, "error": "parse"}
+{"step_index": 265, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1125.0299999713898, "correct": false, "error": "parse"}
+{"step_index": 266, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 111.94999992847443, "correct": false, "error": "parse"}
+{"step_index": 267, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 950.5299999713898, "correct": false, "error": "parse"}
+{"step_index": 268, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 943.3799999952316, "correct": false, "error": "parse"}
+{"step_index": 269, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 78.77500009536743, "correct": false, "error": "parse"}
+{"step_index": 270, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2059.6500000953674, "correct": false, "error": "parse"}
+{"step_index": 271, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2020.0999999046326, "correct": false, "error": "parse"}
+{"step_index": 272, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2131.850000023842, "correct": false, "error": "parse"}
+{"step_index": 273, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2069.960000038147, "correct": false, "error": "parse"}
+{"step_index": 274, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1967.6449999809265, "correct": false, "error": "parse"}
+{"step_index": 275, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2057.810000061989, "correct": false, "error": "parse"}
+{"step_index": 276, "predicted_action": {"actions": ">click</click>"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1002.835000038147, "correct": false, "error": null}
+{"step_index": 277, "predicted_action": {"actions": ">click</click>"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 506.1399999856949, "correct": false, "error": null}
+{"step_index": 278, "predicted_action": {"actions": ">click</click>"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 502.414999961853, "correct": false, "error": null}
+{"step_index": 279, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1062.170000076294, "correct": false, "error": null}
+{"step_index": 280, "predicted_action": {"actions": ">click</click>"}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 988.7200000286102, "correct": false, "error": null}
+{"step_index": 281, "predicted_action": {"actions": ">click</click>"}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 119.68999993801117, "correct": false, "error": null}
+{"step_index": 282, "predicted_action": {"actions": ">click</click>"}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 116.19000005722046, "correct": false, "error": null}
+{"step_index": 283, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 511.4499999284744, "correct": false, "error": "parse"}
+{"step_index": 284, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2058.1350001096725, "correct": false, "error": "parse"}
+{"step_index": 285, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2103.920000076294, "correct": false, "error": "parse"}
+{"step_index": 286, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 719.0599999427795, "correct": false, "error": null}
+{"step_index": 287, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 757.6750000715256, "correct": false, "error": null}
+{"step_index": 288, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 694.5900000333786, "correct": false, "error": null}
+{"step_index": 289, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 123.1800000667572, "correct": false, "error": null}
+{"step_index": 290, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 779.8399999141693, "correct": false, "error": null}
+{"step_index": 291, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1852.9500000476837, "correct": false, "error": "parse"}
+{"step_index": 292, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 755.4000000953674, "correct": false, "error": null}
+{"step_index": 293, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 923.5599999427795, "correct": false, "error": "parse"}
+{"step_index": 294, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 79.88999998569489, "correct": false, "error": "parse"}
+{"step_index": 295, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 75.125, "correct": false, "error": "parse"}
+{"step_index": 296, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 72.28999996185303, "correct": false, "error": "parse"}
+{"step_index": 297, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2123.7150000333786, "correct": false, "error": "parse"}
+{"step_index": 298, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1602.4049999713898, "correct": false, "error": "parse"}
+{"step_index": 299, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 985.8849999904633, "correct": false, "error": "parse"}
+{"step_index": 300, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 78.5, "correct": false, "error": "parse"}
+{"step_index": 301, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2047.9350000619888, "correct": false, "error": "parse"}
+{"step_index": 302, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1938.4900000095367, "correct": false, "error": "parse"}
+{"step_index": 303, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1022.6499999761581, "correct": false, "error": "parse"}
+{"step_index": 304, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 2009.2699999809265, "correct": false, "error": "parse"}
+{"step_index": 305, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1421.6149998903275, "correct": false, "error": "parse"}
+{"step_index": 306, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 1823.6350001096725, "correct": false, "error": "parse"}
+{"step_index": 307, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 1553.6999999284744, "correct": false, "error": "parse"}
+{"step_index": 308, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 736.8550000190735, "correct": false, "error": "parse"}
+{"step_index": 309, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 995.9299999475479, "correct": false, "error": "parse"}
+{"step_index": 310, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 934.2450000047684, "correct": false, "error": "parse"}
+{"step_index": 311, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1021.8600000143051, "correct": false, "error": "parse"}
+{"step_index": 312, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 935.0099999904633, "correct": false, "error": "parse"}
+{"step_index": 313, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1115.585000038147, "correct": false, "error": "parse"}
+{"step_index": 314, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 958.8949999809265, "correct": false, "error": null}
+{"step_index": 315, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 113.20499992370605, "correct": false, "error": null}
+{"step_index": 316, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1043.3600000143051, "correct": false, "error": "parse"}
+{"step_index": 317, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1137.6849999427795, "correct": false, "error": null}
+{"step_index": 318, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 916.0249999761581, "correct": false, "error": "parse"}
+{"step_index": 319, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 966.8450000286102, "correct": false, "error": "parse"}
+{"step_index": 320, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 968.4049999713898, "correct": false, "error": "parse"}
+{"step_index": 321, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1149.179999947548, "correct": false, "error": "parse"}
+{"step_index": 322, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1177.820000052452, "correct": false, "error": "parse"}
+{"step_index": 323, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 99.87999999523163, "correct": false, "error": "parse"}
+{"step_index": 324, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 97.91999995708466, "correct": false, "error": "parse"}
+{"step_index": 325, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 95.87999999523163, "correct": false, "error": "parse"}
+{"step_index": 326, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 95.60500001907349, "correct": false, "error": "parse"}
+{"step_index": 327, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 96.71000003814697, "correct": false, "error": "parse"}
+{"step_index": 328, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 114.625, "correct": false, "error": "parse"}
+{"step_index": 329, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 941.0800000429153, "correct": false, "error": "parse"}
+{"step_index": 330, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 939.0849999189377, "correct": false, "error": "parse"}
+{"step_index": 331, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 2038.2050000429153, "correct": false, "error": "parse"}
+{"step_index": 332, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 980.6549999713898, "correct": false, "error": "parse"}
+{"step_index": 333, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 937.3099999427795, "correct": false, "error": "parse"}
+{"step_index": 334, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 111.81000006198883, "correct": false, "error": "parse"}
+{"step_index": 335, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 955.625, "correct": false, "error": "parse"}
+{"step_index": 336, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 936.2450000047684, "correct": false, "error": null}
+{"step_index": 337, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1132.6449999809265, "correct": false, "error": null}
+{"step_index": 338, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 935.3999999761581, "correct": false, "error": null}
+{"step_index": 339, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 98.09500002861023, "correct": false, "error": null}
+{"step_index": 340, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 959.1050000190735, "correct": false, "error": null}
+{"step_index": 341, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1811.8949999809265, "correct": false, "error": "parse"}
+{"step_index": 342, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 557.664999961853, "correct": false, "error": "parse"}
+{"step_index": 343, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1949.0750000476837, "correct": false, "error": "parse"}
+{"step_index": 344, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1990.8899999856949, "correct": false, "error": "parse"}
+{"step_index": 345, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 948.1100000143051, "correct": false, "error": null}
+{"step_index": 346, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 939.914999961853, "correct": false, "error": null}
+{"step_index": 347, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 922.0049999952316, "correct": false, "error": "parse"}
+{"step_index": 348, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 112.77499997615814, "correct": false, "error": null}
+{"step_index": 349, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1128.5349999666214, "correct": false, "error": "parse"}
+{"step_index": 350, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 945.7000000476837, "correct": false, "error": "parse"}
+{"step_index": 351, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 940.4449999332428, "correct": false, "error": null}
+{"step_index": 352, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2011.6549999713898, "correct": false, "error": "parse"}
+{"step_index": 353, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1017.789999961853, "correct": false, "error": "parse"}
+{"step_index": 354, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 2010.1749999523163, "correct": false, "error": "parse"}
+{"step_index": 355, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 933.6950000524521, "correct": false, "error": null}
+{"step_index": 356, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 977.579999923706, "correct": false, "error": "parse"}
+{"step_index": 357, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 957.5700000524521, "correct": false, "error": "parse"}
+{"step_index": 358, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 972.8249999284744, "correct": false, "error": "parse"}
+{"step_index": 359, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 991.295000076294, "correct": false, "error": null}
+{"step_index": 360, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 421.67000007629395, "correct": false, "error": null}
+{"step_index": 361, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 797.0699999332428, "correct": false, "error": null}
+{"step_index": 362, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2091.9650000333786, "correct": false, "error": "parse"}
+{"step_index": 363, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 318.1599999666214, "correct": false, "error": null}
+{"step_index": 364, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 876.5249999761581, "correct": false, "error": null}
+{"step_index": 365, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1028.9800000190735, "correct": false, "error": "parse"}
+{"step_index": 366, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1069.1699999570847, "correct": false, "error": "parse"}
+{"step_index": 367, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 910.1299999952316, "correct": false, "error": "parse"}
+{"step_index": 368, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 911.7350000143051, "correct": false, "error": "parse"}
+{"step_index": 369, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1064.0900000333786, "correct": false, "error": "parse"}
+{"step_index": 370, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1610.969999909401, "correct": false, "error": "parse"}
+{"step_index": 371, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 2066.2549999952316, "correct": false, "error": "parse"}
+{"step_index": 372, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2224.524999976158, "correct": false, "error": "parse"}
+{"step_index": 373, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1314.2599999904633, "correct": false, "error": "parse"}
+{"step_index": 374, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1402.4900000095367, "correct": false, "error": "parse"}
+{"step_index": 375, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1052.2050000429153, "correct": false, "error": "parse"}
+{"step_index": 376, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1082.7649999856949, "correct": false, "error": "parse"}
+{"step_index": 377, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1040.1949999332428, "correct": false, "error": null}
+{"step_index": 378, "predicted_action": {"actions": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1186.280000090599, "correct": false, "error": null}
+{"step_index": 379, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2072.3000000715256, "correct": false, "error": "parse"}
+{"step_index": 380, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 2139.2799999713898, "correct": false, "error": "parse"}
+{"step_index": 381, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 944.5849999189377, "correct": false, "error": "parse"}
+{"step_index": 382, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 81.82500004768372, "correct": false, "error": "parse"}
+{"step_index": 383, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 922.6749999523163, "correct": false, "error": "parse"}
+{"step_index": 384, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 915.0700000524521, "correct": false, "error": "parse"}
+{"step_index": 385, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 899.3099999427795, "correct": false, "error": "parse"}
+{"step_index": 386, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 885.3999999761581, "correct": false, "error": "parse"}
+{"step_index": 387, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 942.5700000524521, "correct": false, "error": "parse"}
+{"step_index": 388, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 107.34999990463257, "correct": false, "error": "parse"}
+{"step_index": 389, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 938.1000000238419, "correct": false, "error": "parse"}
+{"step_index": 390, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 67.14999997615814, "correct": false, "error": "parse"}
+{"step_index": 391, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1079.2450000047684, "correct": false, "error": "parse"}
+{"step_index": 392, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 884.3099999427795, "correct": false, "error": "parse"}
+{"step_index": 393, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 978.9250000715256, "correct": false, "error": "parse"}
+{"step_index": 394, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 893.789999961853, "correct": false, "error": "parse"}
+{"step_index": 395, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1030.8300000429153, "correct": false, "error": "parse"}
+{"step_index": 396, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1091.8199999332428, "correct": false, "error": null}
+{"step_index": 397, "predicted_action": {}, "ground_truth_action": {"type": "select", "index": 0}, "latency_ms": 584.3500000238419, "correct": false, "error": "parse"}
+{"step_index": 398, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 914.335000038147, "correct": false, "error": "parse"}
+{"step_index": 399, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 78.42500007152557, "correct": false, "error": "parse"}
+{"step_index": 400, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1001.5049999952316, "correct": false, "error": null}
+{"step_index": 401, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1057.7299998998642, "correct": false, "error": null}
+{"step_index": 402, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 973.2549999952316, "correct": false, "error": "parse"}
+{"step_index": 403, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 940.3049999475479, "correct": false, "error": "parse"}
+{"step_index": 404, "predicted_action": {}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 87.51499998569489, "correct": false, "error": "parse"}
+{"step_index": 405, "predicted_action": {"action": "click"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1059.2599999904633, "correct": false, "error": null}
+{"step_index": 406, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1964.0049999952316, "correct": false, "error": "parse"}
+{"step_index": 407, "predicted_action": {}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 2158.6549999713898, "correct": false, "error": "parse"}

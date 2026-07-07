@@ -1,0 +1,12 @@
+{
+  "strict_accuracy": 0.5931372549019608,
+  "type_accuracy": 0.5955882352941176,
+  "index_top1": 0.9558823529411765,
+  "parse_failure_rate": 0.0196078431372549,
+  "mean_latency_ms": 832.4071936315181,
+  "p95_latency_ms": 1218.045000076294,
+  "n_records": 408,
+  "model_id": "LiquidAI/LFM2.5-350M",
+  "run_id": "lfm2.5-350m-q4_k_m-chromium",
+  "browser": "chromium"
+}

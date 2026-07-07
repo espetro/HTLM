@@ -8,6 +8,7 @@ import socket
 import subprocess
 import sys
 import time
+import urllib.parse
 from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Any
@@ -132,8 +133,9 @@ def _run_server(
     return proc
 
 
-def _run_browser_harness(port: int, timeout: float = 900.0) -> None:
-    url = f"http://localhost:{port}/"
+def _run_browser_harness(port: int, model_filename: str, timeout: float = 900.0) -> None:
+    url = f"http://localhost:{port}/?model={urllib.parse.quote('/models/' + model_filename, safe='/')}"
+    stdout, stderr, rc = _agent_browser(["open", url])
     stdout, stderr, rc = _agent_browser(["open", url])
     if rc != 0:
         raise RuntimeError(f"agent-browser open failed: rc={rc} stderr={stderr[:500]} stdout={stdout[:500]}")
@@ -259,7 +261,7 @@ def run_bench(
         )
 
         print("[bench] opening browser harness")
-        _run_browser_harness(port)
+        _run_browser_harness(port, model_path_obj.name)
 
         if not results_file.exists():
             raise RuntimeError("Harness finished but raw_results.json was not written")

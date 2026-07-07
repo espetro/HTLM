@@ -1,0 +1,18 @@
+{
+  "run_id": "lfm2.5-350m-q4_k_m-chromium",
+  "model_path": "/Users/joaquin.terrasamoya/Documents/prjcts/_own/HTLM/export/out/lfm2.5-350m-q4_k_m.gguf",
+  "browser": "chromium",
+  "total_steps": 408,
+  "correct_steps": 242,
+  "accuracy": 0.5931372549019608,
+  "mean_latency_ms": 832.4071936315181,
+  "p50_latency_ms": null,
+  "p95_latency_ms": 1218.045000076294,
+  "errors": 8,
+  "strict_accuracy": 0.5931372549019608,
+  "type_accuracy": 0.5955882352941176,
+  "index_top1": 0.9558823529411765,
+  "parse_failure_rate": 0.0196078431372549,
+  "n_records": 408,
+  "model_id": "LiquidAI/LFM2.5-350M"
+}

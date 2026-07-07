@@ -28,10 +28,11 @@
         throw new Error('Page is not cross-origin isolated; multi-thread WASM will be disabled.');
       }
 
+      const modelUrl = new URLSearchParams(location.search).get('model') || '/models/lfm2.5-350m-q4_k_m.gguf';
       const wllama = new Wllama({ 'default': '/wllama/wasm/wllama.wasm' });
 
-      log('Loading model...');
-      await wllama.loadModelFromUrl('/models/lfm2.5-350m-q4_k_m.gguf', {
+      log('Loading model: ' + modelUrl);
+      await wllama.loadModelFromUrl(modelUrl, {
         n_ctx: 2048,
         progressCallback: ({ loaded, total }) => {
           const pct = total ? Math.round((loaded / total) * 100) : 0;
