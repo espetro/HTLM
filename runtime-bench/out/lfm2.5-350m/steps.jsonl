@@ -1,0 +1,30 @@
+{"step_index": 0, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 131.1799999475479, "correct": true, "error": null}
+{"step_index": 1, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1296.3150000572205, "correct": true, "error": null}
+{"step_index": 2, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1300.5950000286102, "correct": true, "error": null}
+{"step_index": 3, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1128.7050000429153, "correct": true, "error": null}
+{"step_index": 4, "predicted_action": {"type": "select", "index": 0, "value": "John"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1081.9550000429153, "correct": false, "error": null}
+{"step_index": 5, "predicted_action": {"type": "select", "index": 0, "value": "John"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1112.6200000047684, "correct": false, "error": null}
+{"step_index": 6, "predicted_action": {"type": "select", "index": 0, "value": "John"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1068.5350000858307, "correct": false, "error": null}
+{"step_index": 7, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1075.9449999332428, "correct": true, "error": null}
+{"step_index": 8, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1081.3100000619888, "correct": true, "error": null}
+{"step_index": 9, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 517.2150000333786, "correct": true, "error": null}
+{"step_index": 10, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1069.2300000190735, "correct": false, "error": null}
+{"step_index": 11, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1106.2849999666214, "correct": true, "error": null}
+{"step_index": 12, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1016.5499999523163, "correct": true, "error": null}
+{"step_index": 13, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1060.8550000190735, "correct": true, "error": null}
+{"step_index": 14, "predicted_action": {"type": "select", "index": 0, "value": "99201"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1070.954999923706, "correct": false, "error": null}
+{"step_index": 15, "predicted_action": {"type": "select", "index": 0, "value": "99201"}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1295.2750000953674, "correct": false, "error": null}
+{"step_index": 16, "predicted_action": {"type": "select", "index": 0, "value": "99201"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1157.9800000190735, "correct": false, "error": null}
+{"step_index": 17, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1124.6349999904633, "correct": true, "error": null}
+{"step_index": 18, "predicted_action": {"type": "select", "index": 0, "value": "NHL"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1170.8000000715256, "correct": false, "error": null}
+{"step_index": 19, "predicted_action": {"type": "select", "index": 0, "value": "NHL"}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1291.4099999666214, "correct": false, "error": null}
+{"step_index": 20, "predicted_action": {"type": "select", "index": 0, "value": ""}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1132.25, "correct": false, "error": null}
+{"step_index": 21, "predicted_action": {"type": "select", "index": 0, "value": ""}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1218.375, "correct": false, "error": null}
+{"step_index": 22, "predicted_action": {"type": "select", "index": 0, "value": ""}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 161.84999990463257, "correct": false, "error": null}
+{"step_index": 23, "predicted_action": {"type": "select", "index": 0, "value": ""}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 143.625, "correct": false, "error": null}
+{"step_index": 24, "predicted_action": {"type": "select", "index": 0, "value": ""}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 140.24500000476837, "correct": false, "error": null}
+{"step_index": 25, "predicted_action": {"type": "select", "index": 0, "value": ""}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1165.3199999332428, "correct": false, "error": null}
+{"step_index": 26, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1252.280000090599, "correct": true, "error": null}
+{"step_index": 27, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1127.6499999761581, "correct": true, "error": null}
+{"step_index": 28, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "type", "index": 0}, "latency_ms": 1095.789999961853, "correct": false, "error": null}
+{"step_index": 29, "predicted_action": {"type": "click", "index": 0}, "ground_truth_action": {"type": "click", "index": 0}, "latency_ms": 1170.335000038147, "correct": true, "error": null}
