@@ -8,9 +8,11 @@
 
 Fill in after running `uv run python -m training.bakeoff`:
 
-| Candidate | Params | eval_loss | Accuracy | Mean latency | p95 latency | Model size (Q4) | Pass? |
+| Candidate | Params | eval_loss | Accuracy | Mean latency | p95 latency | Model size | Pass? |
 |---|---|---|---|---|---|---|---|
-| LFM2.5-350M | 354M | _ | 46.7% (browser Q4, n=30; MPS unquantized: 71.6% on n=408) | 992ms | 1295ms | 219MB | ⚠️ below 60% |
+| LFM2.5-350M (fine-tuned Q8_0) | 354M | _ | 71.6% (n=408) | 798ms | 1186ms | 362MB | ✅ GO |
+| LFM2.5-350M (fine-tuned Q4_K_M) | 354M | _ | 59.3% (n=408) | 832ms | 1218ms | 219MB | ❌ accuracy |
+| LFM2.5-350M (base Q4_K_M control) | 354M | _ | 0.2% (n=408) | 1080ms | 2131ms | 219MB | ❌ accuracy+latency |
 | FunctionGemma | 268M | _ | _% | _ms | _ms | ~134MB | ✅/❌ |
 | Qwen2.5-0.5B | 494M | _ | _% | _ms | _ms | ~247MB | ✅/❌ |
 
@@ -48,17 +50,23 @@ If accuracy is 50-65% or latency is 1500-2500ms, investigate:
 
 ## 4. Decision
 
-**Candidate selected:** LFM2.5-350M
+**Candidate selected:** LFM2.5-350M (fine-tuned, Q8_0)
 
-**Decision:** ☐ GO — proceed to SDK/extension (step 3)
+**Decision:** ☑ GO — proceed to SDK/extension (step 3)
               ☐ NO-GO — re-assess step 1
-              ☑ **Conditionally GO** (see rationale) — see recommended next steps
+              ☐ Conditional GO
 
 **Rationale / blockers:**
 
-LFM2.5-350M clears two of three go criteria: p95 latency 1295ms (<2000ms ✅) and Q4_K_M size 219MB (<1GB ✅). Browser strict accuracy is **46.7%** (30-sample eval, Q4_K_M), which is **below the 60% gate** — this is a real Q4 quantization degradation, NOT a missing adapter (100% index accuracy in browser proves the LoRA IS merged). The dominant error is click→select confusion (11/16 errors); type classification degrades more under Q4 than element index selection.
+The decisive n=408 4-arm experiment resolves the accuracy question: Q8_0 recovers the full MPS baseline (71.6% strict), while Q4_K_M drops to 59.3% and the base Q4 control is effectively random (0.2%).
 
-**Recommended: conditionally GO** — the fine-tuned pipeline works end-to-end, the latency and size gates pass, and 46.7% on n=30 has a 95% CI of [28%, 66%], so the true accuracy may be above 60% on the full eval. Options: (a) run full 408-record browser eval for a stable accuracy estimate; (b) try Q4_K_M or Q5_K_M to reduce type-classification degradation; (c) accept 46.7% as workable for a v1 if latency is the primary gate.
+- **Fine-tuning signal (base vs fine-tuned Q4):** +59.1 pp (0.2% → 59.3%). Fine-tuning clearly transferred to the browser runtime.
+- **Quantization signal (Q8 vs Q4, both fine-tuned):** +12.3 pp (59.3% → 71.6%). Q4_K_M loses enough type classification accuracy to fall below the 60% gate; Q8_0 is near-lossless.
+- **Latency:** Q8_0 p95 = 1186ms per step in Chromium (< 2000ms ✅). Mean = 798ms.
+- **Size:** Q8_0 artifact = 362MB (< 1GB ✅).
+- **95% CI lower bound for Q8_0:** ~67.2%, well above the 60% threshold.
+
+Q8_0 clears all three go criteria. No need for S2 quantization sweep — the Q8_0 artifact is already well under the 1GB budget and comfortably clears latency. S3 runtime audit is unnecessary because Q8_0 matches the MPS fp16 baseline, confirming the harness and templating are correct.
 
 **Date:** 2026-07-07
 
