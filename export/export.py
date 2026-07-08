@@ -27,20 +27,30 @@ import tempfile
 from pathlib import Path
 
 
-def _find_llama_cpp() -> Path:
-    """Locate llama.cpp build directory."""
-    candidates = [
-        Path(os.environ.get("LLAMA_CPP_DIR", "")) / "build",
-        Path.home() / "llama.cpp" / "build",
-        Path("/usr/local/bin"),  # if installed via make install
+def _find_llama_cpp() -> tuple[Path, Path]:
+    """Locate llama.cpp install: returns (root, quantize_binary).
+
+    Handles both the legacy ``build/quantize`` name and the newer
+    ``build/bin/llama-quantize`` layout from recent llama.cpp releases.
+    """
+    roots = [Path(os.environ.get("LLAMA_CPP_DIR", "")), Path.home() / "llama.cpp"]
+    quantize_candidates = [
+        "build/quantize",
+        "build/bin/quantize",
+        "build/llama-quantize",
+        "build/bin/llama-quantize",
     ]
-    for c in candidates:
-        if c.exists() and (c / "quantize").exists():
-            return c
+    for root in roots:
+        if not root or not root.exists():
+            continue
+        for rel in quantize_candidates:
+            qbin = root / rel
+            if qbin.exists():
+                return root, qbin
     raise SystemExit(
         "llama.cpp not found. Set LLAMA_CPP_DIR or clone and build:\n"
-        "  git clone https://github.com/ggerganov/llama.cpp && cd llama.cpp/build\n"
-        "  cmake .. -DLLAMA_BUILD_EXAMPLES=ON && make"
+        "  git clone https://github.com/ggerganv/llama.cpp && cd llama.cpp\n"
+        "  cmake -B build -DLLAMA_BUILD_EXAMPLES=ON && cmake --build build -j"
     )
 
 
@@ -54,14 +64,11 @@ def export_to_gguf(
     output_path = Path(output_path)
     base_model_id = str(base_model_id)
 
-    llama_build = _find_llama_cpp()
-    convert_script = llama_build.parent / "convert_hf_to_gguf.py"
-    quantize_bin = llama_build / "quantize"
+    llama_root, quantize_bin = _find_llama_cpp()
+    convert_script = llama_root / "convert_hf_to_gguf.py"
 
     if not convert_script.exists():
         raise SystemExit(f"convert_hf_to_gguf.py not found at {convert_script}")
-    if not quantize_bin.exists():
-        raise SystemExit(f"quantize binary not found at {quantize_bin}")
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -89,7 +96,7 @@ print("Merge complete.")
 """
         result = subprocess.run(
             [sys.executable, "-c", merge_code],
-            capture_output=True, text=True, timeout=3600
+            capture_output=True, text=True, timeout=3600, errors="replace"
         )
         if result.returncode != 0:
             raise SystemExit(f"Merge failed:\n{result.stderr}")
@@ -100,7 +107,7 @@ print("Merge complete.")
         print(f"[export] converting to FP32 GGUF → {fp32_path} ...")
         result = subprocess.run(
             [sys.executable, str(convert_script), str(merged_dir), "--outfile", str(fp32_path)],
-            capture_output=True, text=True, timeout=3600
+            capture_output=True, text=True, timeout=3600, errors="replace"
         )
         if result.returncode != 0:
             raise SystemExit(f"GGUF conversion failed:\n{result.stderr}\n{result.stdout}")
@@ -110,7 +117,7 @@ print("Merge complete.")
         print(f"[export] quantizing to {quantize} → {output_path} ...")
         result = subprocess.run(
             [str(quantize_bin), str(fp32_path), str(output_path), quantize],
-            capture_output=True, text=True, timeout=3600
+            capture_output=True, text=True, timeout=3600, errors="replace"
         )
         if result.returncode != 0:
             raise SystemExit(f"Quantization failed:\n{result.stderr}")

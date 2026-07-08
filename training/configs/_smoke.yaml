@@ -1,0 +1,24 @@
+# Smoke-test config: 1 epoch on the 3-record travel sample to validate the
+# full formatter -> train -> save -> load -> generate -> eval loop.
+# NOT for real training. Reuses LFM2.5-350M base.
+# ponytail: throwaway; deleted once Phase 0b passes.
+
+model_id: LiquidAI/LFM2.5-350M
+formatter: llama
+quant: null
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.05
+lora_target_modules: [q_proj, k_proj, v_proj, o_proj]
+learning_rate: 2.0e-4
+num_epochs: 1
+per_device_batch_size: 1
+gradient_accumulation_steps: 1
+warmup_ratio: 0.0
+weight_decay: 0.0
+lr_scheduler: cosine
+max_seq_length: 1024
+train_data: data/samples/travel.jsonl
+eval_data: null
+output_dir: training/runs/_smoke
+gradient_checkpointing: false

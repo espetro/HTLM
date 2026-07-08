@@ -1,0 +1,21 @@
+# Full LFM fine-tune on mlx-tune — mirrors lfm2.5-350m.yaml but via train_mlx.py
+# For verifying mlx-tune reproduces the trl 71.6% baseline.
+model_id: LiquidAI/LFM2.5-350M
+formatter: llama
+lora_rank: 16
+lora_alpha: 32
+lora_dropout: 0.0
+target_modules:
+  - q_proj
+  - k_proj
+  - v_proj
+  - o_proj
+learning_rate: 2.0e-4
+num_epochs: 1
+per_device_batch_size: 4
+gradient_accumulation_steps: 4
+max_seq_length: 2048
+gradient_checkpointing: false
+train_data: data/processed/train.jsonl
+eval_data: data/processed/eval.jsonl
+output_dir: training/runs/lfm2.5-350m-mlx
