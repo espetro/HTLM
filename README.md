@@ -31,6 +31,26 @@ Fine-tuned with LoRA (rank 16) on [Mind2Web](https://github.com/osunlp/Mind2Web)
 
 ---
 
+## How does HTLM compare?
+
+HTLM's **91.2% strict action accuracy** measures whether a fine-tuned 350M model picks the right action type and element index from a pre-indexed list. This is **not the same metric** as the standard Mind2Web Step Success Rate (which additionally scores operation values like typed text). The closest published comparison points — all single-step action predictors fine-tuned on Mind2Web — are on Mind2Web's held-out test splits:
+
+| Model | Params | Metric | Score |
+|---|---|---|---|
+| **HTLM (ours)** | **350M** | **Strict action accuracy (type + index match)** | **91.2%** |
+| MindAct Flan-T5XL | 3B | Step Success Rate (element + operation correct) | 52.0% |
+| GPT-4 (inspect_evals, test_task) | ~? | Step Success Rate | 41.7% |
+| MindAct Flan-T5B | 220M | Step Success Rate | 41.0% |
+| ScribeAgent-Large (zero-shot) | 32B | Step Success Rate (multi-stage QA) | 51.2% |
+
+Among models fine-tuned on Mind2Web's training data, the previous best published single-step result was MindAct Flan-T5XL at 52.0% Step SR. HTLM achieves 91.2% on a simpler sub-task (no operation value scoring, pre-indexed elements) with a 350M model — demonstrating that a small, browser-runnable model can accurately predict the next action given the right action space simplification.
+
+**What is not comparable**: WebVoyager (59% Task SR on custom live-site benchmark), SeeAct (51% Task SR on live websites), and other end-to-end agents evaluate multi-step task completion with full action diversity — a fundamentally different evaluation.
+
+**Sources**: Mind2Web / MindAct (Deng et al., NeurIPS 2023) · SeeAct (Zheng et al., 2024) · ScribeAgent (Shen et al., 2024) · GPT-4 inspect_evals (ukgovernmentbeis/inspect_evals, 2024)
+
+---
+
 ## Key Features
 
 - **Browser-native inference** — runs entirely in-browser via wllama + WebAssembly (Chrome/Firefox)
