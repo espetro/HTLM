@@ -2,6 +2,7 @@
 # Upload HTLM Q8 GGUF + model card to HuggingFace
 # Usage: HF_TOKEN=hf_xxxx bash scripts/hf-upload.sh
 # (Token needs "write" access for espetro or HackBarna namespace)
+# Requires: `hf` CLI v1.19+ (Rust CLI, https://huggingface.co/docs/huggingface_hub/guides/cli)
 
 set -euo pipefail
 
@@ -11,29 +12,26 @@ CARD="docs/model-card-template.md"
 TOKEN="${HF_TOKEN:-}"
 
 if [[ -z "$TOKEN" ]]; then
-    echo "Error: HF_TOKEN not set. Get a token at https://huggingface.co/settings/tokens"
-    echo "Token needs 'write' permission for espetro namespace."
+    echo "Error: HF_TOKEN not set. Get a write token at https://huggingface.co/settings/tokens"
+    exit 1
+fi
+
+if ! command -v hf &>/dev/null; then
+    echo "Error: 'hf' CLI not found. Install: https://huggingface.co/docs/huggingface_hub/guides/cli"
     exit 1
 fi
 
 echo "=== Logging in ==="
- huggingface-cli login --token "$TOKEN"
+hf auth login --token "$TOKEN"
 
-echo "=== Creating repo ==="
- huggingface-cli repo create "$REPO" --type model --organization HackBarna --exist-ok
+echo "=== Creating repo (if not exists) ==="
+hf repos create "$REPO" --type model --exist-ok --token "$TOKEN"
 
 echo "=== Uploading GGUF (362 MB) ==="
- huggingface-cli upload "$REPO" \
-    "$GGUF" \
-    --token "$TOKEN" \
-    --repo-type model
+hf upload "$REPO" "$GGUF" --token "$TOKEN"
 
-echo "=== Uploading model card ==="
- huggingface-cli upload "$REPO" \
-    "$CARD" \
-    --token "$TOKEN" \
-    --repo-type model \
-    --filename README.md
+echo "=== Uploading model card as README.md ==="
+hf upload "$REPO" "$CARD" "README.md" --token "$TOKEN"
 
 echo "=== Done ==="
 echo "Model: https://huggingface.co/$REPO"
