@@ -29,7 +29,7 @@ tags:
   - lfm2.5
   - apple-silicon
   - on-device
-  - espetro
+  - Kinaso42
   - quantized
 ---
 
@@ -68,7 +68,7 @@ import { Wllama } from '@wllama/wllama';
 
 const wllama = new Wllama({ default: './wllama.wasm' });
 await wllama.loadModelFromHF({
-  repo: 'espetro/htlm-lfm2.5-350m',
+  repo: 'Kinaso42/htlm-lfm2.5-350m',
   file: 'htlm-350m-q8.gguf',
 });
 
@@ -91,7 +91,7 @@ llama-cli -m htlm-350m-q8.gguf -p "[INPUT JSON]" -n 128 --temp 0
 
 ```python
 from mlx_lm import load, generate
-model, tokenizer = load('espetro/htlm-lfm2.5-350m-mlx')
+model, tokenizer = load('Kinaso42/htlm-lfm2.5-350m')
 # LoRA merge required first — see GitHub repo
 ```
 

@@ -59,9 +59,9 @@ import { Wllama } from '@wllama/wllama';
 
 const wllama = new Wllama({ default: './wllama.wasm' });
 
-// Load from HuggingFace
+  // Load from HuggingFace
 await wllama.loadModelFromHF({
-  repo: 'espetro/htlm-lfm2.5-350m',
+  repo: 'Kinaso42/htlm-lfm2.5-350m',
   file: 'htlm-350m-q8.gguf',
 });
 
@@ -74,7 +74,7 @@ const result = await wllama.createCompletion({
 });
 ```
 
-Or use the model card: [espetro/htlm-lfm2.5-350m](https://huggingface.co/espetro/htlm-lfm2.5-350m)
+Or use the model card: [Kinaso42/htlm-lfm2.5-350m](https://huggingface.co/Kinaso42/htlm-lfm2.5-350m)
 
 ---
 
@@ -107,7 +107,7 @@ Full pipeline, dataset details, hyperparameters, and reproducibility steps:
 
 | | |
 |---|---|
-| Model | [HuggingFace: espetro/htlm-lfm2.5-350m](https://huggingface.co/espetro/htlm-lfm2.5-350m) |
+| Model | [HuggingFace: Kinaso42/htlm-lfm2.5-350m](https://huggingface.co/Kinaso42/htlm-lfm2.5-350m) |
 | Base model | [LiquidAI/LFM2.5-350M](https://huggingface.co/LiquidAI/LFM2.5-350M) |
 | Runtime | [wllama](https://github.com/ngxson/wllama) |
 | Training | [docs/pipeline.md](docs/pipeline.md) |
