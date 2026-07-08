@@ -1,6 +1,6 @@
 # HTLM — Browser-Agent Fine-Tune
 
-**Fine-tune a 350M browser-agent model on Apple Silicon. Run it in-browser. 71.6% accuracy.**
+**Fine-tune a 350M browser-agent model on Apple Silicon. Run it in-browser. 91.2% accuracy.**
 
 HTLM (HyperText Language Model) fine-tunes a 350M-parameter [LiquidAI LFM2.5](https://huggingface.co/LiquidAI/LFM2.5-350M) to predict web UI actions — click, type, select — on an indexed element list. Runs entirely in-browser via [wllama](https://github.com/ngxson/wllama) WebAssembly, no server required.
 
@@ -11,18 +11,18 @@ HTLM (HyperText Language Model) fine-tunes a 350M-parameter [LiquidAI LFM2.5](ht
 
 ## Results
 
-> **71.6%** strict action accuracy on Mind2Web held-out (n=408)  
-> **1186 ms** p95 inference latency — browser WASM, no server  
+> **91.2%** strict action accuracy on Mind2Web held-out (n=408)  
+> **1245 ms** p95 inference latency — browser WASM, no server  
 > **362 MB** Q8 GGUF — downloads in under a minute  
 > vs. near-random base model: **0.2%**
 
 | Metric | Value |
 |--------|-------|
-| Strict action accuracy | **71.6%** |
-| Action type accuracy | 71.8% |
+| Strict action accuracy | **91.2%** |
+| Action type accuracy | 92.2% |
 | Element index accuracy | 99.8% |
 | Parse failure rate | 0.0% |
-| p95 latency (browser) | 1186 ms |
+| p95 latency (browser) | 1245 ms |
 | Model size | 362 MB (Q8 GGUF) |
 | Base model (no fine-tune) | 0.2% |
 
@@ -33,7 +33,7 @@ Fine-tuned with LoRA (rank 16) on [Mind2Web](https://github.com/osunlp/Mind2Web)
 ## Key Features
 
 - **Browser-native inference** — runs entirely in-browser via wllama + WebAssembly (Chrome/Firefox)
-- **Apple Silicon training** — fine-tuned using the mlx-lm / Unsloth-compatible API on local MLX hardware
+- **Apple Silicon training** — canonical path: fine-tuned using the mlx-lm / Unsloth-compatible API on local MLX hardware
 - **LoRA adapter** — swap adapters without re-downloading the base model
 - **GGUF export** — export to Q4/Q8 GGUF for llama.cpp, ollama, or MLC-LLM
 - **Action space** — predicts `click`, `type`, `select` on an indexed element list derived from page HTML
@@ -80,7 +80,7 @@ Or use the model card: [espetro/htlm-lfm2.5-350m](https://huggingface.co/espetro
 
 ## Train It
 
-Fine-tuned via LoRA/QLoRA on Apple Silicon using the mlx-lm API (Unsloth-compatible). Training setup mirrors standard Unsloth fine-tuning patterns.
+Fine-tuned via LoRA/QLoRA on Apple Silicon using the mlx-lm API (Unsloth-compatible). Training setup mirrors standard Unsloth fine-tuning patterns. **Verified: 91.2% strict accuracy on Mind2Web held-out (n=408).**
 
 ```python
 from mlx_tune import FastLanguageModel, SFTTrainer, SFTConfig

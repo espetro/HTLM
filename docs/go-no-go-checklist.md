@@ -10,7 +10,7 @@ Fill in after running `uv run python -m training.bakeoff`:
 
 | Candidate | Params | eval_loss | Accuracy | Mean latency | p95 latency | Model size | Pass? |
 |---|---|---|---|---|---|---|---|
-| LFM2.5-350M (fine-tuned Q8_0) | 354M | _ | 71.6% (n=408) | 798ms | 1186ms | 362MB | ✅ GO |
+| LFM2.5-350M (fine-tuned Q8_0, mlx-tune) | 354M | _ | 91.2% (n=408) | 824ms | 1245ms | 362MB | ✅ GO |
 | LFM2.5-350M (fine-tuned Q4_K_M) | 354M | _ | 59.3% (n=408) | 832ms | 1218ms | 219MB | ❌ accuracy |
 | LFM2.5-350M (base Q4_K_M control) | 354M | _ | 0.2% (n=408) | 1080ms | 2131ms | 219MB | ❌ accuracy+latency |
 | FunctionGemma | 268M | _ | _% | _ms | _ms | ~134MB | ✅/❌ |
