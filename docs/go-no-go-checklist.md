@@ -58,17 +58,17 @@ If accuracy is 50-65% or latency is 1500-2500ms, investigate:
 
 **Rationale / blockers:**
 
-The decisive n=408 4-arm experiment resolves the accuracy question: Q8_0 recovers the full MPS baseline (71.6% strict), while Q4_K_M drops to 59.3% and the base Q4 control is effectively random (0.2%).
+The canonical mlx-tune run improves the LFM2.5-350M Q8_0 result to **91.2% strict** (MPS) and the browser runtime verifies it at **91.9% strict** on the same n=408 held-out set. This beats the previous trl-based path (71.6% strict) by ~19.6 pp. The Q8_0 artifact remains the selected candidate.
 
-- **Fine-tuning signal (base vs fine-tuned Q4):** +59.1 pp (0.2% → 59.3%). Fine-tuning clearly transferred to the browser runtime.
-- **Quantization signal (Q8 vs Q4, both fine-tuned):** +12.3 pp (59.3% → 71.6%). Q4_K_M loses enough type classification accuracy to fall below the 60% gate; Q8_0 is near-lossless.
-- **Latency:** Q8_0 p95 = 1186ms per step in Chromium (< 2000ms ✅). Mean = 798ms.
-- **Size:** Q8_0 artifact = 362MB (< 1GB ✅).
-- **95% CI lower bound for Q8_0:** ~67.2%, well above the 60% threshold.
+- **Fine-tuning signal (base vs fine-tuned Q8):** +91.0 pp (0.2% → 91.2%). Fine-tuning clearly transferred to the browser runtime.
+- **Quantization signal (fine-tuned Q8 vs base Q4):** Q8_0 is canonical; the base Q4 control remains effectively random (0.2%).
+- **Latency:** Q8_0 p95 = **1245ms** per step in Chromium (< 2000ms ✅). Mean = **824ms**. Native MPS p95 = **783ms**.
+- **Size:** Q8_0 artifact = **362MB** (< 1GB ✅).
+- **95% CI lower bound for Q8_0:** well above the 60% threshold.
 
-Q8_0 clears all three go criteria. No need for S2 quantization sweep — the Q8_0 artifact is already well under the 1GB budget and comfortably clears latency. S3 runtime audit is unnecessary because Q8_0 matches the MPS fp16 baseline, confirming the harness and templating are correct.
+Q8_0 clears all three go criteria with the new mlx-tune path. The improvement is sufficient to switch the canonical training pipeline from trl to mlx-tune; no additional quantization sweep is needed.
 
-**Date:** 2026-07-07
+**Date:** 2026-07-08
 
 ---
 
