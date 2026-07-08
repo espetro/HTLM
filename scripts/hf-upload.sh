@@ -6,7 +6,7 @@
 
 set -euo pipefail
 
-REPO="Kinaso42/htlm-lfm2.5-350m"
+REPO="espetro/htlm-lfm2.5-350m"
 GGUF="export/out/lfm2.5-350m-mlx-q8.gguf"
 CARD="docs/model-card-template.md"
 TOKEN="${HF_TOKEN:-}"
