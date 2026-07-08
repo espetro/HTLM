@@ -10,7 +10,7 @@ lora_alpha: 32
 lora_dropout: 0.05
 lora_target_modules: [q_proj, k_proj, v_proj, o_proj]
 learning_rate: 2.0e-4
-num_epochs: 3
+num_epochs: 1   # ponytail: was 3; 3×23s/it×681steps=4.3hr/cand blew 3-5hr budget. 1 epoch (227 steps) is a solid viability signal for go/no-go.
 per_device_batch_size: 2
 gradient_accumulation_steps: 8    # effective batch = 16
 warmup_ratio: 0.1

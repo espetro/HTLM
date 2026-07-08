@@ -200,8 +200,7 @@ def train(config_path: str | Path) -> None:
         eval_ds = _load_dataset(eval_data_path, formatter_key, tokenizer, config.get("max_seq_length", 2048))
 
     # ── training arguments ───────────────────────────────────────────────────
-    from transformers import TrainingArguments
-    from trl import SFTTrainer
+    from trl import SFTConfig, SFTTrainer
 
     # Precision: explicit config wins; otherwise auto-pick bf16 on cuda/mps,
     # nothing on cpu. fp16 is a CUDA-only legacy option.
@@ -216,7 +215,7 @@ def train(config_path: str | Path) -> None:
         use_fp16 = bool(explicit_fp16)
         use_bf16 = bool(explicit_bf16)
 
-    training_args = TrainingArguments(
+    training_args = SFTConfig(
         output_dir=output_dir,
         num_train_epochs=config.get("num_epochs", 3),
         per_device_train_batch_size=config.get("per_device_batch_size", 2),
@@ -232,6 +231,8 @@ def train(config_path: str | Path) -> None:
         save_strategy="epoch",
         report_to=["tensorboard"],
         optim="paged_adamw_32bit" if quant else "adamw_torch",
+        max_length=config.get("max_seq_length", 2048),
+        dataset_text_field="text",
     )
 
     trainer = SFTTrainer(
@@ -239,9 +240,7 @@ def train(config_path: str | Path) -> None:
         args=training_args,
         train_dataset=train_ds,
         eval_dataset=eval_ds,
-        tokenizer=tokenizer,
-        max_seq_length=config.get("max_seq_length", 2048),
-        dataset_text_field="text",
+        processing_class=tokenizer,
     )
 
     print(f"[train] starting training. train={len(train_ds)} eval={len(eval_ds) if eval_ds else 0}")

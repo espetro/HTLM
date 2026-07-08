@@ -10,9 +10,9 @@ lora_alpha: 32
 lora_dropout: 0.05
 lora_target_modules: [q_proj, k_proj, v_proj, o_proj]
 learning_rate: 2.0e-4
-num_epochs: 3
+num_epochs: 1   # ponytail: was 3; reduced to fit 3-5hr MPS bake-off budget (see lfm config)
 per_device_batch_size: 4
-gradient_accumulation_steps: 4    # effective batch = 16
+gradient_accumulation_steps: 4    # effective batch = 16. ponytail: tried bs=16/ga=1 for speed but MPS scales large batches poorly (step 2 took >3min); bs=4 is the proven-fast floor.
 warmup_ratio: 0.1
 weight_decay: 0.01
 lr_scheduler: cosine

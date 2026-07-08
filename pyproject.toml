@@ -6,7 +6,9 @@ readme = "data/README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [{ name = "espetro" }]
-dependencies = []
+dependencies = [
+    "mlx-tune>=0.6.0",
+]
 
 # Deps land with the issue that needs them. data -> #3, train -> #4, export -> #5.
 [project.optional-dependencies]

@@ -27,8 +27,13 @@ from data.pipeline.records import TrainingRecord
 
 # ── role mapping ──────────────────────────────────────────────────────────────
 
-def _map_role(tag: str, attributes_str: str | None = None) -> str:
-    """Map an HTML tag (+ optional type attr) to our closed role enum."""
+def _map_role(tag: str, attributes_str: str | None = None) -> str | None:
+    """Map an HTML tag (+ optional type attr) to our closed interactive role enum.
+
+    Returns None for structural tags (div/span/p/li/...) — page-representation is
+    the action surface, not the full DOM. Filtering them keeps element lists small
+    enough for a ≤500M model and matches the schema's closed-enum intent.
+    """
     t = tag.lower()
     if t == "input":
         if attributes_str:
@@ -51,7 +56,7 @@ def _map_role(tag: str, attributes_str: str | None = None) -> str:
         "tab": "tab",
         "switch": "switch",
     }
-    return role_map.get(t, t)
+    return role_map.get(t)
 
 
 def _get_label(attributes_str: str | None, text: str | None = None) -> str:
@@ -83,18 +88,27 @@ def _parse_bbox(bbox_str: str | None) -> dict[str, float] | None:
         return None
 
 
-def _build_elements(pos: list[dict], neg: list[dict], axtree: list[dict] | None) -> list[dict]:
-    """Merge pos+neg candidates into a flat indexed elements list.
+MAX_ELEMENTS = 64
+# ponytail: cap element list so it fits max_seq_length≈2048 with room for instruction+action.
+# pos candidates (the target's neighborhood) go first so the target always survives the cap;
+# neg candidates fill the rest as distractors. A consistent pos-first ordering is fair because
+# both train and eval sets come from the same mapper. Caveat: biases target toward low indices;
+# if generalization to high-index targets matters, interleave deterministically.
 
-    Order: neg first, then pos.  The canonical target (is_original_target: true)
-    lands somewhere in pos; its position in the merged list is the ground-truth
-    action index used by Mind2Web evaluators.
+
+def _build_elements(pos: list[dict], neg: list[dict], axtree: list[dict] | None) -> list[dict]:
+    """Merge pos+neg candidates into a flat indexed elements list (interactable only).
+
+    Only elements whose tag maps to a valid role are kept (structural tags dropped).
+    pos first, then neg, capped at MAX_ELEMENTS so the list fits a small model's context.
     """
     merged: list[dict] = []
     seen_backend: set[str] = set()
     idx = 0
-    for bucket in [neg, pos]:
+    for bucket in [pos, neg]:
         for el in bucket:
+            if len(merged) >= MAX_ELEMENTS:
+                break
             bid = str(el.get("backend_node_id") or "")
             if bid and bid in seen_backend:
                 continue
@@ -103,6 +117,8 @@ def _build_elements(pos: list[dict], neg: list[dict], axtree: list[dict] | None)
             tag = str(el.get("tag") or "")
             attrs_str = el.get("attributes")
             role = _map_role(tag, attrs_str)
+            if role is None:
+                continue
             label = _get_label(attrs_str, el.get("text"))
             element: dict[str, Any] = {"index": idx, "role": role, "label": label, "tag": tag}
             # bounds: try axtree first, then skip
@@ -149,8 +165,8 @@ def map_row(row: dict) -> list[TrainingRecord]:
         elements = _build_elements(pos, neg, axtree)
         target_idx = _find_target_index(elements, pos, neg)
         if target_idx is None:
-            target_idx = 0 if elements else None
-        if target_idx is None:
+            # target was structural-tagged (filtered out) or unfound → skip rather
+            # than mislabel as index 0.
             continue
 
         action: dict[str, Any] | None = None
