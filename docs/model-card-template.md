@@ -16,7 +16,7 @@ model-index:
             value: 0.912
           - type: p95-latency-ms
             value: 1245
-            verified: browser-wasm
+            verified: true
 license: apache-2.0
 tags:
   - gguf

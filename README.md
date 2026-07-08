@@ -6,6 +6,7 @@ HTLM (HyperText Language Model) fine-tunes a 350M-parameter [LiquidAI LFM2.5](ht
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Model: LFM2.5-350M](https://img.shields.io/badge/Model-LFM2.5--350M-FFD700?style=flat-square)](https://huggingface.co/LiquidAI/LFM2.5-350M)
+[![HuggingFace: espetro/htlm-lfm2.5-350m](https://img.shields.io/badge/HuggingFace-espetro%2Fhtlm--lfm2.5--350m-yellow)](https://huggingface.co/espetro/htlm-lfm2.5-350m)
 
 ---
 
@@ -62,7 +63,7 @@ const wllama = new Wllama({ default: './wllama.wasm' });
   // Load from HuggingFace
 await wllama.loadModelFromHF({
   repo: 'espetro/htlm-lfm2.5-350m',
-  file: 'htlm-350m-q8.gguf',
+  file: 'lfm2.5-350m-mlx-q8.gguf',
 });
 
 const result = await wllama.createCompletion({
