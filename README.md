@@ -99,6 +99,25 @@ Or use the model card: [espetro/htlm-lfm2.5-350m](https://huggingface.co/espetro
 
 ---
 
+## Try It Live (in your browser)
+
+The 91.2% number above is offline/teacher-forced. This is the same model, same GGUF, grounding a real page snapshot live — no server in the inference path, streamed token-by-token, in a plain browser tab:
+
+![HTLM live grounding demo](runtime-bench/media/demo.gif)
+
+Run it yourself:
+
+```bash
+uv run python runtime-bench/serve.py \
+  --port 8973 --harness-file runtime-bench/demo.html \
+  --models-dir export/out --wllama-dir runtime-bench/vendor/wllama/esm \
+  --prompts-file /tmp/prompts.json --results-file /tmp/results.json
+```
+
+Open `http://localhost:8973/`, pick a seeded page (real `data/processed/eval.jsonl` records, each verified against ground truth before being inlined), or paste your own `{"instruction","page"}` JSON, and watch the model choose and highlight an element.
+
+---
+
 ## Train It
 
 Fine-tuned via LoRA/QLoRA on Apple Silicon using the mlx-lm API (Unsloth-compatible). Training setup mirrors standard Unsloth fine-tuning patterns. **Verified: 91.2% strict accuracy on Mind2Web held-out (n=408).**

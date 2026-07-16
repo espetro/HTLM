@@ -230,3 +230,10 @@ runtime-bench/vendor/
 *.gguf
 *.onnx
 *.bin
+
+# integration/ live-bench run outputs (regenerable, timestamped stale dirs are scratch)
+integration/out/
+integration/out.stale-*/
+
+# raw screen recordings (source for runtime-bench/media/*.gif, not needed in repo)
+runtime-bench/media/*.webm

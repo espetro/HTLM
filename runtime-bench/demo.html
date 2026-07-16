@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTLM live grounding demo</title>
+  <style>
+    :root {
+      --bg: #0d1117; --panel: #161b22; --border: #30363d; --text: #e6edf3;
+      --muted: #8b949e; --accent: #58a6ff; --ok: #3fb950; --warn: #d29922;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      margin: 0; padding: 1.5rem; background: var(--bg); color: var(--text);
+      max-width: 1100px; margin-inline: auto;
+    }
+    h1 { font-size: 1.15rem; margin: 0 0 0.25rem; }
+    .sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 1.25rem; }
+    .status { padding: 0.6rem 0.8rem; border: 1px solid var(--border); border-radius: 6px; background: var(--panel); font-size: 0.8rem; margin-bottom: 1rem; white-space: pre-wrap; }
+    .status.ok { border-color: var(--ok); }
+    .status.err { border-color: #f85149; color: #f85149; }
+    .row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .col { flex: 1 1 320px; min-width: 0; }
+    select, textarea, input[type=text], button.primary {
+      width: 100%; background: var(--panel); color: var(--text); border: 1px solid var(--border);
+      border-radius: 6px; padding: 0.5rem; font-family: inherit; font-size: 0.85rem;
+    }
+    textarea { resize: vertical; min-height: 90px; }
+    button.primary {
+      background: var(--accent); color: #0d1117; font-weight: 600; cursor: pointer; border: none;
+      width: auto; padding: 0.5rem 1.25rem; margin-top: 0.5rem;
+    }
+    button.primary:disabled { opacity: 0.5; cursor: not-allowed; }
+    label.field { display: block; font-size: 0.75rem; color: var(--muted); margin: 0.6rem 0 0.25rem; }
+    fieldset { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin: 0 0 1rem; }
+    legend { padding: 0 0.4rem; color: var(--muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
+    /* mock rendered page */
+    #page-mock { border: 1px solid var(--border); border-radius: 8px; padding: 1rem; background: #fff; color: #111; }
+    #page-mock .page-url { font-size: 0.7rem; color: #6b7280; margin-bottom: 0.6rem; }
+    .mock-el { margin-bottom: 0.6rem; transition: box-shadow 0.2s, background 0.2s; border-radius: 4px; padding: 2px; }
+    .mock-el.chosen { box-shadow: 0 0 0 3px var(--warn); background: #fff8e1; }
+    .mock-label { font-size: 0.7rem; color: #6b7280; display: block; margin-bottom: 2px; }
+    .mock-input { width: 100%; padding: 0.4rem; border: 1px solid #d0d7de; border-radius: 4px; font-family: inherit; font-size: 0.85rem; }
+    .mock-btn { padding: 0.4rem 0.9rem; border-radius: 4px; border: 1px solid #d0d7de; background: #f6f8fa; cursor: default; font-size: 0.85rem; }
+    .mock-link { color: #0969da; text-decoration: underline; cursor: default; font-size: 0.85rem; }
+    .mock-check { display: flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; }
+    .idx-tag { font-size: 0.65rem; color: #9ca3af; margin-left: 0.4rem; }
+
+    pre#stream { background: var(--panel); border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem; font-size: 0.8rem; white-space: pre-wrap; word-break: break-word; min-height: 3em; }
+    pre#parsed { background: var(--panel); border: 1px solid var(--ok); border-radius: 6px; padding: 0.75rem; font-size: 0.8rem; white-space: pre-wrap; }
+    pre#parsed.bad { border-color: #f85149; }
+  </style>
+</head>
+<body>
+  <h1>HTLM live grounding demo</h1>
+  <div class="sub">
+    350M-parameter grounding model, running entirely in this browser tab via wllama (WASM llama.cpp) —
+    no server in the inference path. Pick a page below, type an instruction, and watch it choose an action.
+  </div>
+
+  <div id="status" class="status">Initializing...</div>
+
+  <fieldset>
+    <legend>1. Pick a page</legend>
+    <div class="row">
+      <div class="col">
+        <label class="field">Seed snapshot (real page-representation.json, from data/samples/travel.jsonl)</label>
+        <select id="seed-select"></select>
+      </div>
+    </div>
+    <label class="field">Or paste your own {"instruction","page"} JSON</label>
+    <textarea id="custom-json" placeholder='{"instruction":"...","page":{"url":"...","title":"...","elements":[...]}}'></textarea>
+    <button class="primary" id="load-custom" style="margin-top:0.4rem;width:auto;">Load pasted JSON</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>2. Rendered page (mock — from the same elements JSON the model sees)</legend>
+    <div id="page-mock"><div class="page-url">(no page loaded)</div></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>3. Instruction</legend>
+    <input type="text" id="instruction" placeholder="e.g. Search for a cheap flight from Madrid to Tokyo">
+    <button class="primary" id="ground-btn" disabled>Ground</button>
+  </fieldset>
+
+  <fieldset>
+    <legend>4. Model output (raw stream)</legend>
+    <pre id="stream">(nothing yet)</pre>
+  </fieldset>
+
+  <fieldset>
+    <legend>5. Parsed action</legend>
+    <pre id="parsed">(nothing yet)</pre>
+  </fieldset>
+
+  <script type="module">
+    import { Wllama } from '/wllama/index.js';
+
+    // Verbatim from training/formatters.py::SYSTEM_PROMPT_GROUNDING — NOT
+    // data/pipeline/prompt.py::SYSTEM_PROMPT. LlamaFormatter (the formatter LFM2.5-350M was
+    // actually trained with, per training/configs/lfm2.5-350m.yaml: formatter=llama) emits
+    // *this* shorter prompt as the system message, and training/eval.py::_build_prompt/
+    // integration/htlm_server.py inherit it via the same formatter — so this is what the
+    // model was fine-tuned and eval'd against. Using the longer data/pipeline/prompt.py
+    // string here would silently feed the model an instruction distribution it never saw.
+    const SYSTEM_PROMPT = `You are a browser grounding model. You receive a JSON description of the interactive elements on a web page and a natural-language instruction. Output exactly ONE action as compact JSON.
+
+Roles: button, link, input, textarea, select, checkbox, radio, combobox, searchbox, menu, menuitem, tab, switch. Elements have unique indices.
+
+Actions:
+- {"type":"click","index":<int>}
+- {"type":"type","index":<int>,"text":"...","submit":false}
+- {"type":"select","index":<int>,"value":"..."}
+- {"type":"scroll","direction":"up"|"down"|"left"|"right"}
+- {"type":"wait"}
+- {"type":"done","answer":"..."}
+
+Rules: index must reference an existing element. Prefer fewest steps. Output only the JSON object.`;
+
+    // Seeded from real data/processed/eval.jsonl records, each verified via
+    // llama-cpp-python (export/out/lfm2.5-350m-q4_k_m.gguf) to reproduce the exact
+    // ground-truth action before being inlined here -- not hand-authored guesses.
+    const SEED_TASKS = [
+      {
+        label: "Filter women's sports bras (click, 64 elements)",
+        instruction: "Filter women's sports bras that are purple  with high support that are small size.",
+        page: {"elements":[{"index":0,"role":"link","label":"","tag":"a"},{"index":1,"role":"link","label":"","tag":"a"},{"index":2,"role":"link","label":"","tag":"a"},{"index":3,"role":"link","label":"","tag":"a"},{"index":4,"role":"button","label":"","tag":"button"},{"index":5,"role":"link","label":"","tag":"a"},{"index":6,"role":"link","label":"","tag":"a"},{"index":7,"role":"link","label":"","tag":"a"},{"index":8,"role":"link","label":"","tag":"a"},{"index":9,"role":"link","label":"","tag":"a"},{"index":10,"role":"link","label":"","tag":"a"},{"index":11,"role":"link","label":"","tag":"a"},{"index":12,"role":"link","label":"","tag":"a"},{"index":13,"role":"link","label":"","tag":"a"},{"index":14,"role":"link","label":"","tag":"a"},{"index":15,"role":"input","label":"","tag":"input"},{"index":16,"role":"button","label":"","tag":"button"},{"index":17,"role":"button","label":"","tag":"button"},{"index":18,"role":"link","label":"","tag":"a"},{"index":19,"role":"link","label":"","tag":"a"},{"index":20,"role":"link","label":"","tag":"a"},{"index":21,"role":"link","label":"","tag":"a"},{"index":22,"role":"select","label":"","tag":"select"},{"index":23,"role":"link","label":"","tag":"a"},{"index":24,"role":"link","label":"","tag":"a"},{"index":25,"role":"link","label":"","tag":"a"},{"index":26,"role":"link","label":"","tag":"a"},{"index":27,"role":"link","label":"","tag":"a"},{"index":28,"role":"link","label":"","tag":"a"},{"index":29,"role":"link","label":"","tag":"a"},{"index":30,"role":"link","label":"","tag":"a"},{"index":31,"role":"link","label":"","tag":"a"},{"index":32,"role":"link","label":"","tag":"a"},{"index":33,"role":"link","label":"","tag":"a"},{"index":34,"role":"link","label":"","tag":"a"},{"index":35,"role":"button","label":"","tag":"button"},{"index":36,"role":"link","label":"","tag":"a"},{"index":37,"role":"button","label":"","tag":"button"},{"index":38,"role":"link","label":"","tag":"a"},{"index":39,"role":"link","label":"","tag":"a"},{"index":40,"role":"link","label":"","tag":"a"},{"index":41,"role":"link","label":"","tag":"a"},{"index":42,"role":"link","label":"","tag":"a"},{"index":43,"role":"link","label":"","tag":"a"},{"index":44,"role":"link","label":"","tag":"a"},{"index":45,"role":"link","label":"","tag":"a"},{"index":46,"role":"button","label":"","tag":"button"},{"index":47,"role":"link","label":"","tag":"a"},{"index":48,"role":"link","label":"","tag":"a"},{"index":49,"role":"button","label":"","tag":"button"},{"index":50,"role":"link","label":"","tag":"a"},{"index":51,"role":"link","label":"","tag":"a"},{"index":52,"role":"link","label":"","tag":"a"},{"index":53,"role":"link","label":"","tag":"a"},{"index":54,"role":"link","label":"","tag":"a"},{"index":55,"role":"link","label":"","tag":"a"},{"index":56,"role":"link","label":"","tag":"a"},{"index":57,"role":"button","label":"","tag":"button"},{"index":58,"role":"link","label":"","tag":"a"},{"index":59,"role":"link","label":"","tag":"a"},{"index":60,"role":"link","label":"","tag":"a"},{"index":61,"role":"link","label":"","tag":"a"},{"index":62,"role":"link","label":"","tag":"a"},{"index":63,"role":"link","label":"","tag":"a"}]},
+        expected: {"type":"click","index":0},
+      },
+      {
+        label: "Find rental for an economy car in Houston from Mar 10 to Mar (type, 24 elements)",
+        instruction: "Find rental for an economy car in Houston from Mar 10 to Mar 13.",
+        page: {"elements":[{"index":0,"role":"input","label":"","tag":"input"},{"index":1,"role":"link","label":"","tag":"a"},{"index":2,"role":"link","label":"","tag":"a"},{"index":3,"role":"button","label":"","tag":"button"},{"index":4,"role":"link","label":"","tag":"a"},{"index":5,"role":"checkbox","label":"","tag":"input"},{"index":6,"role":"select","label":"","tag":"select"},{"index":7,"role":"select","label":"","tag":"select"},{"index":8,"role":"select","label":"","tag":"select"},{"index":9,"role":"select","label":"","tag":"select"},{"index":10,"role":"select","label":"","tag":"select"},{"index":11,"role":"select","label":"","tag":"select"},{"index":12,"role":"checkbox","label":"","tag":"input"},{"index":13,"role":"button","label":"","tag":"button"},{"index":14,"role":"input","label":"","tag":"input"},{"index":15,"role":"link","label":"","tag":"a"},{"index":16,"role":"link","label":"","tag":"a"},{"index":17,"role":"link","label":"","tag":"a"},{"index":18,"role":"link","label":"","tag":"a"},{"index":19,"role":"input","label":"","tag":"input"},{"index":20,"role":"input","label":"","tag":"input"},{"index":21,"role":"link","label":"","tag":"a"},{"index":22,"role":"link","label":"","tag":"a"},{"index":23,"role":"link","label":"","tag":"a"}]},
+        expected: {"type":"type","index":0,"text":"Houston","submit":false},
+      },
+      {
+        label: "Show reviews for Fallout 4 and mark the first one as helpful (select, 36 elements)",
+        instruction: "Show reviews for Fallout 4 and mark the first one as helpful.",
+        page: {"elements":[{"index":0,"role":"select","label":"","tag":"select"},{"index":1,"role":"link","label":"","tag":"a"},{"index":2,"role":"link","label":"","tag":"a"},{"index":3,"role":"link","label":"","tag":"a"},{"index":4,"role":"link","label":"","tag":"a"},{"index":5,"role":"link","label":"","tag":"a"},{"index":6,"role":"link","label":"","tag":"a"},{"index":7,"role":"link","label":"","tag":"a"},{"index":8,"role":"link","label":"","tag":"a"},{"index":9,"role":"link","label":"","tag":"a"},{"index":10,"role":"link","label":"","tag":"a"},{"index":11,"role":"link","label":"","tag":"a"},{"index":12,"role":"link","label":"","tag":"a"},{"index":13,"role":"link","label":"","tag":"a"},{"index":14,"role":"input","label":"","tag":"input"},{"index":15,"role":"select","label":"","tag":"select"},{"index":16,"role":"select","label":"","tag":"select"},{"index":17,"role":"link","label":"","tag":"a"},{"index":18,"role":"link","label":"","tag":"a"},{"index":19,"role":"link","label":"","tag":"a"},{"index":20,"role":"link","label":"","tag":"a"},{"index":21,"role":"link","label":"","tag":"a"},{"index":22,"role":"link","label":"","tag":"a"},{"index":23,"role":"link","label":"","tag":"a"},{"index":24,"role":"link","label":"","tag":"a"},{"index":25,"role":"link","label":"","tag":"a"},{"index":26,"role":"link","label":"","tag":"a"},{"index":27,"role":"link","label":"","tag":"a"},{"index":28,"role":"link","label":"","tag":"a"},{"index":29,"role":"link","label":"","tag":"a"},{"index":30,"role":"link","label":"","tag":"a"},{"index":31,"role":"link","label":"","tag":"a"},{"index":32,"role":"link","label":"","tag":"a"},{"index":33,"role":"link","label":"","tag":"a"},{"index":34,"role":"link","label":"","tag":"a"},{"index":35,"role":"link","label":"","tag":"a"}]},
+        expected: {"type":"select","index":0,"value":"1995"},
+      },
+    ];
+
+    const $ = (id) => document.getElementById(id);
+    const statusEl = $("status");
+    const seedSelect = $("seed-select");
+    const customJson = $("custom-json");
+    const loadCustomBtn = $("load-custom");
+    const pageMock = $("page-mock");
+    const instructionEl = $("instruction");
+    const groundBtn = $("ground-btn");
+    const streamEl = $("stream");
+    const parsedEl = $("parsed");
+
+    let currentPage = null;
+    let wllama = null;
+
+    function setStatus(msg, cls) {
+      statusEl.textContent = msg;
+      statusEl.className = "status" + (cls ? " " + cls : "");
+    }
+
+    // Mirrors training/formatters.py::LlamaFormatter._render_page /
+    // data/pipeline/prompt.py::render_page: instruction + "\n\n" + compact page JSON
+    // (metadata stripped, no grounding signal).
+    function renderPageForModel(page) {
+      const clean = { ...page };
+      delete clean.metadata;
+      return JSON.stringify(clean);
+    }
+
+    // wllama's createChatCompletion applies the GGUF's embedded chat template via a WASM
+    // "minja" Jinja engine, which does not reliably match Python's jinja2 output for this
+    // template (verified: identical SYSTEM_PROMPT/page JSON in, wrong action out in-browser,
+    // while the exact same messages through llama-cpp-python's tokenizer produced the correct
+    // ground-truth action). Per the plan's stated fallback, build the ChatML string ourselves —
+    // confirmed byte-for-byte against `tokenizer.apply_chat_template(messages, tokenize=False,
+    // add_generation_prompt=True)` for LiquidAI/LFM2.5-350M — and use the raw createCompletion
+    // API instead, exactly like runtime-bench/harness.html already does successfully.
+    function buildPrompt(systemContent, userContent) {
+      return `<|startoftext|><|im_start|>system\n${systemContent}<|im_end|>\n<|im_start|>user\n${userContent}<|im_end|>\n<|im_start|>assistant\n`;
+    }
+
+    function renderMockPage(page) {
+      const urlLine = `<div class="page-url">${page.title ? escapeHtml(page.title) + " — " : ""}${escapeHtml(page.url || "")}</div>`;
+      const els = (page.elements || []).map((el) => renderMockElement(el)).join("");
+      pageMock.innerHTML = urlLine + els;
+    }
+
+    function escapeHtml(s) {
+      return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    }
+
+    function renderMockElement(el) {
+      const idxTag = `<span class="idx-tag">#${el.index}</span>`;
+      const label = escapeHtml(el.label || el.placeholder || el.role);
+      let inner;
+      if (["input", "textarea", "combobox", "searchbox"].includes(el.role)) {
+        inner = `<label class="mock-label">${label}${idxTag}</label>` +
+          `<input class="mock-input" type="text" placeholder="${escapeHtml(el.placeholder || "")}" value="${escapeHtml(el.value || "")}" readonly>`;
+      } else if (el.role === "button") {
+        inner = `<button class="mock-btn">${label}${idxTag}</button>`;
+      } else if (el.role === "link") {
+        inner = `<a class="mock-link" href="#">${label}${idxTag}</a>`;
+      } else if (["checkbox", "radio", "switch"].includes(el.role)) {
+        inner = `<label class="mock-check"><input type="${el.role === "radio" ? "radio" : "checkbox"}" disabled>${label}${idxTag}</label>`;
+      } else if (el.role === "select") {
+        inner = `<label class="mock-label">${label}${idxTag}</label><select class="mock-input" disabled><option>${label}</option></select>`;
+      } else {
+        inner = `<span>${label}${idxTag}</span>`;
+      }
+      return `<div class="mock-el" data-index="${el.index}">${inner}</div>`;
+    }
+
+    function highlightIndex(index) {
+      pageMock.querySelectorAll(".mock-el").forEach((n) => n.classList.remove("chosen"));
+      if (index === null || index === undefined) return;
+      const target = pageMock.querySelector(`.mock-el[data-index="${index}"]`);
+      if (target) target.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      if (target) target.classList.add("chosen");
+    }
+
+    function loadPage(page, instruction) {
+      currentPage = page;
+      renderMockPage(page);
+      instructionEl.value = instruction ?? "";
+      streamEl.textContent = "(nothing yet)";
+      parsedEl.textContent = "(nothing yet)";
+      parsedEl.classList.remove("bad");
+      highlightIndex(null);
+    }
+
+    seedSelect.innerHTML = SEED_TASKS.map((t, i) => `<option value="${i}">${escapeHtml(t.label)}</option>`).join("");
+    seedSelect.addEventListener("change", () => {
+      const t = SEED_TASKS[Number(seedSelect.value)];
+      loadPage(t.page, t.instruction);
+    });
+
+    loadCustomBtn.addEventListener("click", () => {
+      try {
+        const parsed = JSON.parse(customJson.value);
+        if (!parsed.page || !parsed.page.elements) throw new Error('expected {"instruction":..., "page":{"elements":[...]}}');
+        loadPage(parsed.page, parsed.instruction || "");
+      } catch (e) {
+        setStatus("Bad pasted JSON: " + (e?.message ?? e), "err");
+      }
+    });
+
+    // Mirrors training/eval.py::_extract_action: first JSON object in the text.
+    function extractAction(text) {
+      const m = text.match(/\{[\s\S]*\}/);
+      if (!m) return null;
+      try {
+        return JSON.parse(m[0]);
+      } catch {
+        return null;
+      }
+    }
+
+    groundBtn.addEventListener("click", async () => {
+      if (!currentPage) return;
+      const instruction = instructionEl.value.trim();
+      if (!instruction) return;
+      groundBtn.disabled = true;
+      streamEl.textContent = "";
+      parsedEl.textContent = "(grounding...)";
+      parsedEl.classList.remove("bad");
+      highlightIndex(null);
+      try {
+        const prompt = buildPrompt(SYSTEM_PROMPT, `${instruction}\n\n${renderPageForModel(currentPage)}`);
+        let full = "";
+        const chunks = await wllama.createCompletion({
+          prompt,
+          max_tokens: 128,
+          temperature: 0,
+          stop: ["<|im_end|>"],
+          stream: true,
+        });
+        for await (const chunk of chunks) {
+          const delta = chunk.choices?.[0]?.text;
+          if (delta) {
+            full += delta;
+            streamEl.textContent = full;
+          }
+        }
+        const action = extractAction(full);
+        if (action) {
+          parsedEl.textContent = JSON.stringify(action, null, 2);
+          parsedEl.classList.remove("bad");
+          highlightIndex(action.index);
+        } else {
+          parsedEl.textContent = "Could not parse a JSON action from the output above.";
+          parsedEl.classList.add("bad");
+        }
+      } catch (e) {
+        parsedEl.textContent = "ERROR: " + (e?.message ?? e);
+        parsedEl.classList.add("bad");
+      } finally {
+        groundBtn.disabled = false;
+      }
+    });
+
+    (async () => {
+      try {
+        setStatus("Isolation check: crossOriginIsolated=" + self.crossOriginIsolated +
+          " SharedArrayBuffer=" + (typeof SharedArrayBuffer !== "undefined"));
+        if (!self.crossOriginIsolated || typeof SharedArrayBuffer === "undefined") {
+          throw new Error("Page is not cross-origin isolated; serve.py's COOP/COEP headers are required.");
+        }
+
+        const modelUrl = new URLSearchParams(location.search).get("model") || "/models/lfm2.5-350m-q4_k_m.gguf";
+        wllama = new Wllama({ default: "/wllama/wasm/wllama.wasm" });
+
+        setStatus(`Loading model: ${modelUrl} (0%)`);
+        await wllama.loadModelFromUrl(modelUrl, {
+          n_ctx: 2048,
+          progressCallback: ({ loaded, total }) => {
+            const pct = total ? Math.round((loaded / total) * 100) : 0;
+            setStatus(`Loading model: ${modelUrl} (${pct}%)`);
+          },
+        });
+
+        const hasChatTemplate = typeof wllama.getChatTemplate === "function" ? !!wllama.getChatTemplate() : true;
+        setStatus(
+          `Model loaded. GGUF chat template present: ${hasChatTemplate}. Pick a page and ground away.`,
+          "ok"
+        );
+
+        loadPage(SEED_TASKS[0].page, SEED_TASKS[0].instruction);
+        groundBtn.disabled = false;
+      } catch (err) {
+        setStatus("ERROR: " + (err?.message ?? String(err)), "err");
+      }
+    })();
+  </script>
+</body>
+</html>
