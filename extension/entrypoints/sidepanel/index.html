@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTLM grounder</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font: 13px/1.5 ui-sans-serif, system-ui, sans-serif; margin: 0; padding: 12px; }
+    h1 { font-size: 14px; margin: 0 0 8px; }
+    .status { font-size: 12px; padding: 6px 8px; border-radius: 6px; background: #f1f5f9; color: #334155; margin-bottom: 10px; }
+    .status.ok { background: #dcfce7; color: #166534; }
+    .status.err { background: #fee2e2; color: #991b1b; }
+    @media (prefers-color-scheme: dark) {
+      .status { background: #1e293b; color: #cbd5e1; }
+      .status.ok { background: #064e3b; color: #bbf7d0; }
+      .status.err { background: #7f1d1d; color: #fecaca; }
+    }
+    textarea { width: 100%; box-sizing: border-box; font: inherit; padding: 6px; border-radius: 6px; border: 1px solid #cbd5e1; background: transparent; color: inherit; resize: vertical; }
+    button { font: inherit; font-weight: 600; padding: 8px 12px; border: 0; border-radius: 6px; background: #2563eb; color: #fff; cursor: pointer; width: 100%; margin-top: 8px; }
+    button:disabled { opacity: .5; cursor: default; }
+    .label { font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: #64748b; margin: 12px 0 4px; }
+    pre { white-space: pre-wrap; word-break: break-word; background: #0f172a; color: #e2e8f0; padding: 8px; border-radius: 6px; font-size: 12px; margin: 0; max-height: 160px; overflow: auto; }
+    pre.bad { background: #7f1d1d; color: #fecaca; }
+    .hint { font-size: 11px; color: #64748b; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <h1>HTLM &mdash; ground the current page</h1>
+  <div id="status" class="status">Loading model&hellip;</div>
+
+  <div class="label">Instruction</div>
+  <textarea id="instruction" rows="2" placeholder="e.g. Search for cheap flights to Tokyo"></textarea>
+  <button id="ground-btn" disabled>Ground current page</button>
+  <div class="hint">Reads the active tab&rsquo;s interactive elements, runs the 350M model in the background, and highlights the element it picks.</div>
+
+  <div class="label">Model output</div>
+  <pre id="stream">(nothing yet)</pre>
+
+  <div class="label">Parsed action</div>
+  <pre id="parsed">(nothing yet)</pre>
+
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "extends": "./.wxt/tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM", "DOM.Iterable"]
+  },
+  "include": ["entrypoints", "lib", "tests", "wxt.config.ts", "vitest.config.ts", "env.d.ts", ".wxt/types"]
+}
